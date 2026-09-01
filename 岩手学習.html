@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>わかる！岩手県｜岩手県基礎知識</title>
+
+<style>
+/* =========================
+   基本設定
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Noto Sans JP",
+        "Yu Gothic",
+        "Hiragino Kaku Gothic ProN",
+        sans-serif;
+    background: #f4f8f5;
+    color: #26352d;
+    line-height: 1.8;
+}
+
+/* =========================
+   ヘッダー
+========================= */
+
+header {
+    background:
+        linear-gradient(135deg, #0f5132, #2d7d55);
+    color: white;
+    padding: 50px 20px 70px;
+    text-align: center;
+}
+
+header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(34px, 7vw, 64px);
+    letter-spacing: 0.08em;
+}
+
+header p {
+    margin: 15px auto 0;
+    max-width: 700px;
+    font-size: 18px;
+}
+
+/* =========================
+   ナビゲーション
+========================= */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    overflow-x: auto;
+}
+
+nav a {
+    flex: 0 0 auto;
+    padding: 15px 18px;
+    color: #24543b;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav a:hover {
+    background: #e8f3ec;
+}
+
+/* =========================
+   共通
+========================= */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 70px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title .number {
+    color: #d08a24;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+}
+
+.section-title h2 {
+    margin: 5px 0;
+    font-size: 32px;
+    color: #174d32;
+}
+
+.section-title p {
+    color: #68756d;
+}
+
+/* =========================
+   基本データ
+========================= */
+
+.data-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.data-card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.data-card .icon {
+    font-size: 35px;
+}
+
+.data-card .label {
+    font-size: 13px;
+    color: #748078;
+    margin-top: 8px;
+}
+
+.data-card .value {
+    font-size: 23px;
+    font-weight: bold;
+    color: #174d32;
+    margin-top: 3px;
+}
+
+/* =========================
+   地域カード
+========================= */
+
+.area-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.area-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.area-card:hover {
+    transform: translateY(-5px);
+}
+
+.area-head {
+    padding: 20px 25px;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.area-card:nth-child(1) .area-head {
+    background: #4b8f68;
+}
+
+.area-card:nth-child(2) .area-head {
+    background: #b47a3c;
+}
+
+.area-card:nth-child(3) .area-head {
+    background: #337e9b;
+}
+
+.area-card:nth-child(4) .area-head {
+    background: #6e6b9a;
+}
+
+.area-body {
+    padding: 22px 25px;
+}
+
+.area-body p {
+    margin: 0;
+}
+
+.area-detail {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    background: #f2f7f3;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.area-card.open .area-detail {
+    display: block;
+}
+
+/* =========================
+   学習カード
+========================= */
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.topic-card {
+    background: white;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+    transition: 0.25s;
+}
+
+.topic-card:hover {
+    transform: translateY(-4px);
+}
+
+.topic-icon {
+    font-size: 42px;
+}
+
+.topic-card h3 {
+    color: #174d32;
+    margin-bottom: 8px;
+}
+
+/* =========================
+   豆知識
+========================= */
+
+.fact-box {
+    background:
+        linear-gradient(135deg, #fff9ed, #fffdf8);
+    border-left: 7px solid #d08a24;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+.fact-box strong {
+    color: #a96308;
+}
+
+/* =========================
+   クイズ
+========================= */
+
+.quiz-section {
+    background: #e8f2eb;
+}
+
+.quiz-box {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.question-number {
+    color: #2d7d55;
+    font-weight: bold;
+}
+
+.question {
+    font-size: 21px;
+    font-weight: bold;
+    margin: 15px 0 25px;
+}
+
+.answers {
+    display: grid;
+    gap: 12px;
+}
+
+.answer-btn {
+    border: 2px solid #dbe8df;
+    background: white;
+    padding: 15px 18px;
+    border-radius: 12px;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.answer-btn:hover {
+    border-color: #4b8f68;
+    background: #f3faf5;
+}
+
+.answer-btn.correct {
+    background: #dff3e5;
+    border-color: #39945d;
+}
+
+.answer-btn.wrong {
+    background: #ffe4e4;
+    border-color: #cf5c5c;
+}
+
+.quiz-result {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 12px;
+    display: none;
+}
+
+.quiz-result.show {
+    display: block;
+}
+
+.next-btn,
+.retry-btn {
+    margin-top: 20px;
+    border: none;
+    background: #174d32;
+    color: white;
+    padding: 13px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.next-btn:hover,
+.retry-btn:hover {
+    background: #0f3824;
+}
+
+/* =========================
+   進捗
+========================= */
+
+.progress-wrap {
+    margin: 20px 0;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #e2e9e4;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background: #4b8f68;
+    transition: 0.3s;
+}
+
+/* =========================
+   フッター
+========================= */
+
+footer {
+    background: #173c29;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+    font-size: 13px;
+}
+
+footer a {
+    color: #ccebd7;
+}
+
+/* =========================
+   レスポンシブ
+========================= */
+
+@media (max-width: 800px) {
+
+    .data-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .topic-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .area-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 550px) {
+
+    header {
+        padding: 40px 18px 55px;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    .data-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .data-card {
+        padding: 18px 8px;
+    }
+
+    .data-card .value {
+        font-size: 18px;
+    }
+
+    .topic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quiz-box {
+        padding: 25px 18px;
+    }
+
+    .question {
+        font-size: 18px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- =========================
+     ヘッダー
+========================= -->
+
+<header>
+
+    <div class="badge">
+        岩手県 基礎知識学習ページ
+    </div>
+
+    <h1>わかる！岩手県</h1>
+
+    <p>
+        地理・歴史・文化・食・観光などを知って、
+        岩手県についてもっと詳しくなろう！
+    </p>
+
+</header>
+
+
+<!-- =========================
+     ナビゲーション
+========================= -->
+
+<nav>
+
+    <div class="nav-inner">
+
+        <a href="#basic">基本</a>
+        <a href="#area">地域</a>
+        <a href="#nature">自然</a>
+        <a href="#culture">文化</a>
+        <a href="#food">食</a>
+        <a href="#people">人物</a>
+        <a href="#quiz">クイズ</a>
+
+    </div>
+
+</nav>
+
+
+<main>
+
+
+<!-- =========================
+     基本情報
+========================= -->
+
+<section id="basic">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div class="number">01 BASIC</div>
+
+        <h2>まずは基本を知ろう</h2>
+
+        <p>
+            岩手県はどんなところ？
+        </p>
+
+    </div>
+
+
+    <div class="data-grid">
+
+        <div class="data-card">
+
+            <div class="icon">📍</div>
+
+            <div class="label">
+                県庁所在地
+            </div>
+
+            <div class="value">
+                盛岡市
+            </div>
+
+        </div>
+
+
+        <div class="data-card">
+
+            <div class="icon">🗾</div>
+
+            <div class="label">
+                面積
+            </div>
+
+            <div class="value">
+                約15,275 km²
+            </div>
+
+        </div>
+
+
+        <div class="data-card">
+
+            <div class="icon">🏘️</div>
+
+            <div class="label">
+                市町村
+            </div>
+
+            <div class="value">
+                33
+            </div>
+
+        </div>
+
+
+        <div class="data-card">
+
+            <div class="icon">🌊</div>
+
+            <div class="label">
+                海
+            </div>
+
+            <div class="value">
+                太平洋
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="fact-box">
+
+        <strong>ポイント！</strong>
+
+        <p>
+            岩手県は本州の北東部にあります。
+            面積は約15,275km²で、都道府県では北海道に次いで広く、
+            本州では最大です。
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     地域
+========================= -->
+
+<section id="area">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div class="number">02 AREA</div>
+
+        <h2>岩手県の4つの地域</h2>
+
+        <p>
+            岩手県は大きく4つのエリアに分けて考えることができます。
+            カードをクリックしてみましょう。
+        </p>
+
+    </div>
+
+
+    <div class="area-grid">
+
+
+        <div class="area-card">
+
+            <div class="area-head">
+                🏙️ 県央
+            </div>
+
+            <div class="area-body">
+
+                <p>
+                    盛岡市を中心とする地域です。
+                    県庁所在地があり、交通・教育・商業などの
+                    中心的な役割を持っています。
+                </p>
+
+                <div class="area-detail">
+
+                    <strong>代表的な場所</strong>
+
+                    <p>
+                        盛岡市、八幡平市、滝沢市、雫石町など
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="area-card">
+
+            <div class="area-head">
+                🌾 県南
+            </div>
+
+            <div class="area-body">
+
+                <p>
+                    農業や工業などが盛んな地域です。
+                    世界文化遺産の「平泉」もあります。
+                </p>
+
+                <div class="area-detail">
+
+                    <strong>代表的な場所</strong>
+
+                    <p>
+                        花巻市、北上市、遠野市、一関市、奥州市、
+                        平泉町など
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="area-card">
+
+            <div class="area-head">
+                🌊 沿岸
+            </div>
+
+            <div class="area-body">
+
+                <p>
+                    太平洋に面した三陸地域。
+                    海産物や美しい海岸などが特徴です。
+                </p>
+
+                <div class="area-detail">
+
+                    <strong>代表的な場所</strong>
+
+                    <p>
+                        宮古市、釜石市、大船渡市、
+                        陸前高田市など
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="area-card">
+
+            <div class="area-head">
+                🌲 県北
+            </div>
+
+            <div class="area-body">
+
+                <p>
+                    豊かな自然や伝統的な食文化、
+                    地域に根付いたものづくりなどが特徴です。
+                </p>
+
+                <div class="area-detail">
+
+                    <strong>代表的な場所</strong>
+
+                    <p>
+                        二戸市、久慈市、一戸町、洋野町など
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     自然
+========================= -->
+
+<section id="nature">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div class="number">03 NATURE</div>
+
+        <h2>豊かな自然</h2>
+
+        <p>
+            山・川・海。岩手県にはさまざまな自然があります。
+        </p>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                ⛰️
+            </div>
+
+            <h3>山</h3>
+
+            <p>
+                奥羽山脈や北上高地など、
+                広い山地があります。
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🏞️
+            </div>
+
+            <h3>北上川</h3>
+
+            <p>
+                北上川は岩手県を代表する河川の一つ。
+                県内を南北に流れています。
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🌊
+            </div>
+
+            <h3>三陸海岸</h3>
+
+            <p>
+                太平洋側には美しいリアス海岸が広がり、
+                海の幸にも恵まれています。
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="fact-box">
+
+        <strong>覚えておこう！</strong>
+
+        <p>
+            「山」「川」「海」は、
+            岩手県を理解するための重要なキーワードです。
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     文化・歴史
+========================= -->
+
+<section id="culture">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div class="number">04 CULTURE</div>
+
+        <h2>歴史と文化</h2>
+
+        <p>
+            岩手県には長い歴史と独特の文化があります。
+        </p>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🏯
+            </div>
+
+            <h3>平泉</h3>
+
+            <p>
+                奥州藤原氏の文化を伝える地域。
+                中尊寺金色堂などで知られ、
+                世界文化遺産に登録されています。
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                👹
+            </div>
+
+            <h3>鬼の伝説</h3>
+
+            <p>
+                「岩手」という名前の由来には、
+                盛岡市の三ツ石神社に伝わる
+                鬼の伝説が関係しています。
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                📖
+            </div>
+
+            <h3>宮沢賢治</h3>
+
+            <p>
+                「銀河鉄道の夜」などで知られる
+                岩手県出身の作家・詩人です。
+                岩手を「イーハトーブ」と表現しました。
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🥁
+            </div>
+
+            <h3>さんさ踊り</h3>
+
+            <p>
+                盛岡市を代表する夏の祭り。
+                太鼓の音と踊りが街を彩ります。
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🎭
+            </div>
+
+            <h3>わんこそば</h3>
+
+            <p>
+                岩手県を代表する食文化の一つ。
+                小さなお椀にそばを次々と入れて食べます。
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🐴
+            </div>
+
+            <h3>遠野の民話</h3>
+
+            <p>
+                遠野には多くの昔話や民話が伝わっています。
+                「遠野物語」でも知られています。
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     食
+========================= -->
+
+<section id="food">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div class="number">05 FOOD</div>
+
+        <h2>岩手の食文化</h2>
+
+        <p>
+            岩手には地域ごとにさまざまな名物があります。
+        </p>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🍜
+            </div>
+
+            <h3>わんこそば</h3>
+
+            <p>
+                小さなお椀に入ったそばを
+                何杯も楽しむ岩手の名物です。
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🍲
+            </div>
+
+            <h3>盛岡じゃじゃ麺</h3>
+
+            <p>
+                肉味噌を使った独特の麺料理。
+                盛岡三大麺の一つです。
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🍜
+            </div>
+
+            <h3>盛岡冷麺</h3>
+
+            <p>
+                コシのある麺と冷たいスープが特徴。
+                盛岡を代表するご当地グルメです。
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🐟
+            </div>
+
+            <h3>海産物</h3>
+
+            <p>
+                三陸の海では、わかめ、牡蠣、ホタテ、
+                ウニなど豊かな海産物がとれます。
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🥩
+            </div>
+
+            <h3>前沢牛</h3>
+
+            <p>
+                岩手県奥州市前沢地域で生産される
+                ブランド牛として知られています。
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🍎
+            </div>
+
+            <h3>りんご</h3>
+
+            <p>
+                岩手県ではりんごなどの果物も
+                生産されています。
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     人物
+========================= -->
+
+<section id="people">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div class="number">06 PEOPLE</div>
+
+        <h2>岩手ゆかりの人物</h2>
+
+        <p>
+            岩手県には全国的に知られる人物も多くいます。
+        </p>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                📚
+            </div>
+
+            <h3>宮沢賢治</h3>
+
+            <p>
+                作家・詩人。
+                「銀河鉄道の夜」
+                「注文の多い料理店」などで知られます。
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                ✍️
+            </div>
+
+            <h3>石川啄木</h3>
+
+            <p>
+                岩手県出身の歌人・詩人。
+                「一握の砂」などの作品があります。
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">
+                🏛️
+            </div>
+
+            <h3>新渡戸稲造</h3>
+
+            <p>
+                国際的に活躍した教育者・思想家。
+                旧5,000円札の肖像でも知られています。
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     クイズ
+========================= -->
+
+<section id="quiz" class="quiz-section">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div class="number">07 QUIZ</div>
+
+        <h2>岩手県クイズ</h2>
+
+        <p>
+            学んだことをクイズで確認しましょう！
+        </p>
+
+    </div>
+
+
+    <div class="quiz-box">
+
+        <div class="question-number" id="questionNumber">
+            第1問
+        </div>
+
+        <div class="question" id="question">
+            岩手県の県庁所在地はどこでしょう？
+        </div>
+
+
+        <div class="answers" id="answers">
+
+            <button class="answer-btn" onclick="checkAnswer(0)">
+                A. 一関市
+            </button>
+
+            <button class="answer-btn" onclick="checkAnswer(1)">
+                B. 盛岡市
+            </button>
+
+            <button class="answer-btn" onclick="checkAnswer(2)">
+                C. 花巻市
+            </button>
+
+            <button class="answer-btn" onclick="checkAnswer(3)">
+                D. 宮古市
+            </button>
+
+        </div>
+
+
+        <div class="quiz-result" id="quizResult"></div>
+
+        <button
+            class="next-btn"
+            id="nextButton"
+            onclick="nextQuestion()"
+            style="display:none;">
+            次の問題 →
+        </button>
+
+
+        <div class="progress-wrap">
+
+            <div>
+                学習進捗：
+                <span id="progressText">0 / 5</span>
+            </div>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress"
+                    id="progressBar">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<!-- =========================
+     フッター
+========================= -->
+
+<footer>
+
+    <p>
+        わかる！岩手県｜岩手県基礎知識学習ページ
+    </p>
+
+    <p>
+        情報参考：
+        <a
+            href="https://www.pref.iwate.jp/kensei/profile/index.html"
+            target="_blank"
+            rel="noopener">
+            岩手県公式ホームページ
+        </a>
+    </p>
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   地域カード
+========================= */
+
+const areaCards =
+    document.querySelectorAll(".area-card");
+
+areaCards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        card.classList.toggle("open");
+
+    });
+
+});
+
+
+/* =========================
+   クイズ
+========================= */
+
+const questions = [
+
+    {
+        question:
+            "岩手県の県庁所在地はどこでしょう？",
+
+        answers:
+            [
+                "一関市",
+                "盛岡市",
+                "花巻市",
+                "宮古市"
+            ],
+
+        correct: 1,
+
+        explanation:
+            "正解は盛岡市です。盛岡市は岩手県の県庁所在地です。"
+    },
+
+
+    {
+        question:
+            "岩手県は、都道府県の面積で何番目に広いでしょう？",
+
+        answers:
+            [
+                "1番",
+                "2番",
+                "5番",
+                "10番"
+            ],
+
+        correct: 1,
+
+        explanation:
+            "岩手県は北海道に次いで全国2番目に広い都道府県です。"
+    },
+
+
+    {
+        question:
+            "岩手県には、いくつの市町村がありますか？",
+
+        answers:
+            [
+                "20",
+                "25",
+                "33",
+                "47"
+            ],
+
+        correct: 2,
+
+        explanation:
+            "岩手県には14市、15町、4村、合計33市町村があります。"
+    },
+
+
+    {
+        question:
+            "岩手県の太平洋側に広がる海岸で有名なのは？",
+
+        answers:
+            [
+                "三陸海岸",
+                "湘南海岸",
+                "九十九里浜",
+                "若狭湾"
+            ],
+
+        correct: 0,
+
+        explanation:
+            "岩手県の太平洋側には三陸海岸が広がっています。"
+    },
+
+
+    {
+        question:
+            "「銀河鉄道の夜」などを書いた岩手県ゆかりの人物は？",
+
+        answers:
+            [
+                "夏目漱石",
+                "宮沢賢治",
+                "太宰治",
+                "芥川龍之介"
+            ],
+
+        correct: 1,
+
+        explanation:
+            "宮沢賢治は岩手県を代表する作家・詩人です。"
+    }
+
+];
+
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let answered = false;
+
+
+/* =========================
+   問題表示
+========================= */
+
+function showQuestion() {
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("questionNumber")
+        .textContent =
+        "第" + (currentQuestion + 1) + "問";
+
+    document.getElementById("question")
+        .textContent =
+        q.question;
+
+
+    const answers =
+        document.getElementById("answers");
+
+    answers.innerHTML = "";
+
+
+    q.answers.forEach((answer, index) => {
+
+        const button =
+            document.createElement("button");
+
+        button.className = "answer-btn";
+
+        button.textContent =
+            String.fromCharCode(65 + index)
+            + ". "
+            + answer;
+
+        button.onclick =
+            () => checkAnswer(index);
+
+        answers.appendChild(button);
+
+    });
+
+
+    document.getElementById("quizResult")
+        .classList.remove("show");
+
+    document.getElementById("quizResult")
+        .textContent = "";
+
+    document.getElementById("nextButton")
+        .style.display = "none";
+
+    answered = false;
+
+}
+
+
+/* =========================
+   回答チェック
+========================= */
+
+function checkAnswer(index) {
+
+    if (answered) {
+        return;
+    }
+
+    answered = true;
+
+
+    const q =
+        questions[currentQuestion];
+
+    const buttons =
+        document.querySelectorAll(".answer-btn");
+
+
+    buttons.forEach((button, i) => {
+
+        if (i === q.correct) {
+            button.classList.add("correct");
+        }
+
+        if (i === index && i !== q.correct) {
+            button.classList.add("wrong");
+        }
+
+    });
+
+
+    const result =
+        document.getElementById("quizResult");
+
+
+    if (index === q.correct) {
+
+        score++;
+
+        result.innerHTML =
+            "🎉 <strong>正解！</strong><br>"
+            + q.explanation;
+
+        result.style.background =
+            "#e5f5e9";
+
+    } else {
+
+        result.innerHTML =
+            "😢 <strong>残念！</strong><br>"
+            + q.explanation;
+
+        result.style.background =
+            "#fff0f0";
+
+    }
+
+
+    result.classList.add("show");
+
+
+    if (currentQuestion <
+        questions.length - 1) {
+
+        document.getElementById("nextButton")
+            .style.display = "inline-block";
+
+    } else {
+
+        showFinalResult();
+
+    }
+
+}
+
+
+/* =========================
+   次の問題
+========================= */
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+    showQuestion();
+
+}
+
+
+/* =========================
+   最終結果
+========================= */
+
+function showFinalResult() {
+
+    const result =
+        document.getElementById("quizResult");
+
+    let message = "";
+
+
+    if (score === 5) {
+
+        message =
+            "🏆 パーフェクト！岩手県博士です！";
+
+    } else if (score >= 3) {
+
+        message =
+            "👏 よくできました！かなり岩手県に詳しくなりました。";
+
+    } else {
+
+        message =
+            "📚 もう一度ページを見て、岩手県について復習してみましょう！";
+
+    }
+
+
+    result.innerHTML +=
+        "<br><br>"
+        + "<strong>あなたの得点："
+        + score
+        + " / "
+        + questions.length
+        + "</strong>"
+        + "<br>"
+        + message;
+
+
+    document.getElementById("nextButton")
+        .style.display = "none";
+
+
+    document.getElementById("progressText")
+        .textContent =
+        score + " / " + questions.length;
+
+
+    document.getElementById("progressBar")
+        .style.width =
+        (score / questions.length * 100)
+        + "%";
+
+}
+
+
+/* =========================
+   初期表示
+========================= */
+
+showQuestion();
+
+</script>
+
+</body>
+</html>
