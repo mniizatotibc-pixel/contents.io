@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#d97845">
+<title>FREE TIME｜一関 自由行動</title>
+<style>
+:root{
+  --ink:#2f2b28;--muted:#746e69;--cream:#fffaf1;--paper:#fff;
+  --orange:#d97845;--teal:#417f7b;--line:#eadfce;--nav:#273f3d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;line-height:1.75}
+a{color:inherit}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(39,63,61,.96);color:white;box-shadow:0 4px 20px #0002}
+.topbar-in{max-width:1100px;margin:auto;padding:10px 18px;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.back{text-decoration:none;border:1px solid #ffffff55;border-radius:999px;padding:7px 12px;font-size:.85rem}
+.hero{padding:82px 20px 64px;background:
+radial-gradient(circle at 15% 15%,#ffd29c 0 10%,transparent 11%),
+radial-gradient(circle at 85% 15%,#b7ddd2 0 12%,transparent 13%),
+linear-gradient(135deg,#fff2da,#fffaf1 55%,#eef7f1);
+text-align:center;border-bottom:1px solid var(--line)}
+.kicker{letter-spacing:.22em;font-size:.75rem;color:var(--orange);font-weight:900}
+.hero h1{font:800 clamp(2.8rem,8vw,5.8rem) "Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;margin:8px 0 5px;color:#3e4d48;line-height:1}
+.hero h1 span{color:var(--orange)}
+.hero p{max-width:680px;margin:18px auto;color:var(--muted)}
+.timebox{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px}
+.timepill{background:white;border:1px solid var(--line);border-radius:999px;padding:9px 15px;font-weight:800;box-shadow:0 5px 15px #0000000b}
+.timepill b{color:var(--orange)}
+.updated{margin-top:12px;font-size:.78rem;color:var(--muted)}
+main{max-width:1100px;margin:auto;padding:50px 20px 90px}
+.intro{margin-bottom:22px}
+.ey{font-size:.73rem;letter-spacing:.17em;font-weight:900;color:var(--teal)}
+h2{font:800 clamp(2rem,4vw,2.8rem) "Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;margin:5px 0;color:#384844}
+.lead{color:var(--muted);max-width:760px}
+.group-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.group-chip{--accent:#d97845;--pale:#fff0e7;text-decoration:none;background:white;border:1px solid var(--line);border-radius:16px;padding:16px;display:grid;grid-template-columns:auto 1fr;gap:3px 12px;align-items:center;transition:.2s;box-shadow:0 6px 18px #00000009}
+.group-chip:hover{transform:translateY(-2px);border-color:var(--accent)}
+.chip-no{grid-row:1/3;width:38px;height:38px;border-radius:50%;background:var(--pale);color:var(--accent);display:grid;place-items:center;font-weight:900}
+.chip-name{font-weight:900;font-size:1.02rem;font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif}
+.chip-status{font-size:.7rem;color:var(--muted)}
+.group-section{--accent:#d97845;--pale:#fff0e7;margin:76px 0 0;padding-top:10px}
+.group-head{display:flex;justify-content:space-between;align-items:end;gap:20px;border-bottom:4px solid var(--accent);padding-bottom:12px}
+.group-class{font-size:.7rem;letter-spacing:.13em;color:var(--accent);font-weight:900}
+.group-head h2{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;font-weight:900;font-size:clamp(2rem,5vw,3.1rem);margin:0;color:#2f3734}
+.status{background:#edf7ef;color:#3f7a51;border-radius:999px;padding:6px 12px;font-size:.73rem;font-weight:900}
+.status.warn{background:#fff0d7;color:#a26718}
+.purpose-card{margin-top:20px;background:var(--pale);border-left:5px solid var(--accent);padding:20px 22px;border-radius:0 15px 15px 0}
+.purpose-card p{margin:6px 0 0;font-size:1.05rem;font-weight:700}
+.mini-label{font-size:.68rem;letter-spacing:.16em;color:var(--accent);font-weight:900}
+.info-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:15px;margin-top:15px}
+.members-card,.route-card{background:white;border:1px solid var(--line);border-radius:15px;padding:19px}
+.members{font-weight:800;margin-top:6px}
+.leader{font-size:.83rem;color:var(--muted);margin-top:8px}
+.route-card strong{display:block;margin-top:7px;color:#354944}
+.timeline-label{margin:28px 0 8px}
+.timeline{position:relative}
+.timeline:before{content:"";position:absolute;left:98px;top:12px;bottom:14px;width:2px;background:#d9cdbf}
+.stop{display:grid;grid-template-columns:82px 24px minmax(0,1fr);gap:0 8px;position:relative;padding:8px 0 13px}
+.dot{width:12px;height:12px;background:var(--accent);border-radius:50%;margin:9px auto 0;z-index:1;box-shadow:0 0 0 5px var(--cream)}
+.stop-time{font-weight:900;color:#4f5854;font-size:.9rem;padding-top:3px;text-align:right;white-space:nowrap}
+.stop-main{min-width:0;background:white;border:1px solid var(--line);border-radius:14px;padding:14px 16px;overflow-wrap:anywhere}
+.pending .stop-main{background:#fffaf0;border-style:dashed}
+.pending .dot{background:#c7a15c}
+.place{font-weight:900;font-size:1.04rem}
+.action{margin-top:3px}
+.memo{margin-top:7px;padding:7px 9px;background:#f7f3ed;border-radius:8px;color:var(--muted);font-size:.82rem}
+.maplink{font-size:.68rem;color:var(--teal);text-decoration:none;margin-left:7px;border-bottom:1px solid #9cc0bc;white-space:nowrap}
+.toplink{display:inline-block;margin-top:12px;color:var(--teal);font-size:.84rem;text-decoration:none}
+.loading,.error{max-width:750px;margin:70px auto;text-align:center;padding:28px;border-radius:16px;background:white;border:1px solid var(--line)}
+.error{color:#a14d35}
+footer{background:#273f3d;color:#e9f0ed;text-align:center;padding:40px 20px;font-size:.84rem;margin-top:50px}
+
+@media(max-width:800px){
+ .group-grid{grid-template-columns:repeat(2,1fr)}
+ .info-grid{grid-template-columns:1fr}
+}
+@media(max-width:580px){
+ .group-grid{grid-template-columns:1fr}
+ .hero{padding:60px 18px 45px}
+ .group-head{align-items:start}
+ .timeline:before{display:none}
+ .stop{display:block;padding:7px 0 14px}
+ .dot{display:none}
+ .stop-time{display:inline-block;text-align:left;margin:0 0 5px;padding:3px 10px;border-radius:999px;background:var(--pale);color:var(--accent);font-size:.8rem}
+ .stop-main{width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="back" href="iwate_school_trip_web_shiori_2026_v3.html">← 旅のしおりに戻る</a>
+    <div style="font-size:.75rem;letter-spacing:.1em">ICHINOSEKI FREE TIME</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="kicker">DAY 2 · GROUP ACTIVITY</div>
+  <h1>一関 <span>FREE TIME</span></h1>
+  <p>グループで決めたテーマをもとに、一関のまちを歩きます。食べる、見る、撮る、知る。2時間の過ごし方は、自分たち次第。</p>
+  <div class="timebox">
+    <div class="timepill"><b>START</b>　<span id="startText">読込中...</span></div>
+    <div class="timepill"><b>GOAL</b>　<span id="goalText">読込中...</span></div>
+  </div>
+  <div class="updated" id="updatedText"></div>
+</header>
+
+<main id="app">
+  <div class="loading">最新の行動予定を読み込んでいます…</div>
+</main>
+
+<footer>
+  専門学校東京国際ビジネスカレッジ｜2026 岩手修学旅行<br>
+  一関 自由行動プラン
+</footer>
+
+<script>
+const API_URL = 'https://script.google.com/macros/s/AKfycby-HiwtW1adEwM5gPTx7FBPgmmdw1-KPCQRUHnD_CQjvan26z1peRw0JOpxBHit7y9h/exec';
+
+const palette = [
+  ['#ea6f7e','#fff0f2'],['#8e5b4d','#f7eee9'],['#d79d32','#fff6dc'],
+  ['#e8783d','#fff0e8'],['#7c78a8','#f0eff9'],['#56a4bf','#eaf7fb'],
+  ['#5ea66f','#edf8ef'],['#5385bd','#eef5fb'],['#56815e','#edf4ee'],
+  ['#b7464d','#fcecee'],['#8d68ad','#f5eff9']
+];
+
+const esc = (s='') => String(s)
+  .replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;')
+  .replaceAll('"','&quot;').replaceAll("'","&#39;");
+
+function mapUrl(place){
+  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(place + ' 一関 岩手');
+}
+
+function render(data){
+  const groups = data.groups || [];
+  const settings = data.settings || {};
+  document.getElementById('startText').textContent = settings.START || '13:30 一ノ関駅前（変更有）';
+  document.getElementById('goalText').textContent = settings.GOAL || '15:30 一ノ関駅前（変更有）';
+  document.getElementById('updatedText').textContent =
+    settings['Web表示用更新日時'] ? '最終更新：' + settings['Web表示用更新日時'] : '';
+
+  const chips = groups.map((g,i)=>{
+    const [accent,pale]=palette[i%palette.length];
+    const status = g.status || '調整中';
+    return `<a class="group-chip" href="#group-${i+1}" style="--accent:${accent};--pale:${pale}">
+      <span class="chip-no">${String(i+1).padStart(2,'0')}</span>
+      <span class="chip-name">${esc(g.name)}</span>
+      <span class="chip-status">${esc(status)}</span>
+    </a>`;
+  }).join('');
+
+  const sections = groups.map((g,i)=>{
+    const [accent,pale]=palette[i%palette.length];
+    const status = g.status || '調整中';
+    const stops = (g.schedule||[]).map(s=>{
+      const time = s.time || '時間調整中';
+      const place = s.place || (s.action ? '場所調整中' : '');
+      const pending = (!s.time || !s.place) ? ' pending' : '';
+      const map = s.place ? `<a class="maplink" target="_blank" rel="noopener" href="${mapUrl(s.place)}">MAP ↗</a>` : '';
+      return `<div class="stop${pending}">
+        <div class="stop-time">${esc(time)}</div>
+        <div class="dot"></div>
+        <div class="stop-main">
+          ${place ? `<div class="place">${esc(place)} ${map}</div>` : ''}
+          ${s.action ? `<div class="action">${esc(s.action)}</div>` : ''}
+          ${s.memo ? `<div class="memo">${esc(s.memo)}</div>` : ''}
+        </div>
+      </div>`;
+    }).join('');
+
+    return `<section class="group-section" id="group-${i+1}" style="--accent:${accent};--pale:${pale}">
+      <div class="group-head">
+        <div><div class="group-class">${esc(g.className)} · GROUP ${String(i+1).padStart(2,'0')}</div><h2>${esc(g.name)}</h2></div>
+        <div class="status ${status==='調整中'?'warn':''}">${esc(status)}</div>
+      </div>
+      <div class="purpose-card"><div class="mini-label">OUR PURPOSE</div><p>${esc(g.purpose)}</p></div>
+      <div class="info-grid">
+        <div class="members-card"><div class="mini-label">MEMBERS</div><div class="members">${(g.members||[]).map(esc).join(' ／ ')}</div><div class="leader">リーダー：${esc(g.leader || '未記載')}</div></div>
+        <div class="route-card"><div class="mini-label">FREE TIME</div><strong>START　${esc(settings.START || '13:30 一ノ関駅前（変更有）')}</strong><strong>GOAL　${esc(settings.GOAL || '15:30 一ノ関駅前（変更有）')}</strong></div>
+      </div>
+      <div class="mini-label timeline-label">OUR ROUTE</div>
+      <div class="timeline">${stops}</div>
+      <a class="toplink" href="#groups">↑ グループ一覧へ</a>
+    </section>`;
+  }).join('');
+
+  document.getElementById('app').innerHTML = `
+    <section class="intro" id="groups">
+      <div class="ey">CHOOSE YOUR GROUP</div>
+      <h2>自分のグループを確認</h2>
+      <p class="lead">グループ名をタップすると、目的・メンバー・行動予定にジャンプします。スプレッドシートの更新内容がこのページに反映されます。</p>
+      <div class="group-grid">${chips}</div>
+    </section>
+    ${sections}`;
+}
+
+async function load(){
+  if(API_URL.includes('PASTE_GAS')){
+    document.getElementById('app').innerHTML =
+      '<div class="error"><b>GASのURLがまだ設定されていません。</b><br>API_URL にウェブアプリURLを貼り付けてください。</div>';
+    return;
+  }
+  try{
+    const res = await fetch(API_URL + '?t=' + Date.now(), {cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    render(await res.json());
+  }catch(err){
+    console.error(err);
+    document.getElementById('app').innerHTML =
+      '<div class="error"><b>最新データを読み込めませんでした。</b><br>通信環境またはGASの公開設定を確認してください。</div>';
+  }
+}
+load();
+</script>
+</body>
+</html>
