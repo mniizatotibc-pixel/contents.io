@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1f4a38">
+<title>ROOM｜岩手修学旅行 2026</title>
+<style>
+:root{
+  --wine:#2f6b4f;--deep:#1f4a38;--cream:#f5f7ef;--paper:#fffef9;
+  --ink:#302b29;--muted:#756b66;--gold:#c4a85b;--line:#dce5d7;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  line-height:1.7;
+}
+.topbar{
+  position:sticky;top:0;z-index:10;background:rgba(66,29,37,.97);
+  color:white;box-shadow:0 4px 18px #0002;
+}
+.topbar-inner{
+  max-width:1080px;margin:auto;padding:11px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.back{
+  color:white;text-decoration:none;font-size:.88rem;
+  border:1px solid #ffffff55;border-radius:999px;padding:7px 12px;
+}
+.back:hover{background:#ffffff12}
+.trip-mini{font-size:.78rem;letter-spacing:.08em;opacity:.82}
+
+.hero{
+  background:linear-gradient(135deg,#6f2936,#1f4a38);
+  color:white;padding:72px 20px 66px;text-align:center;
+}
+.eyebrow{font-size:.75rem;letter-spacing:.22em;opacity:.78;font-weight:800}
+.hero h1{
+  margin:8px 0 8px;font-family:serif;
+  font-size:clamp(2.7rem,8vw,5.4rem);line-height:1.05;
+}
+.hero p{margin:12px auto 0;max-width:620px;color:#efe5e1}
+.hero .sub{font-size:1.05rem;font-weight:700}
+
+main{max-width:1080px;margin:auto;padding:48px 20px 90px}
+.intro{
+  display:flex;align-items:end;justify-content:space-between;
+  gap:24px;margin-bottom:28px;
+}
+.intro h2{font:700 clamp(1.8rem,4vw,2.5rem) serif;color:var(--deep);margin:0}
+.intro p{margin:4px 0 0;color:var(--muted)}
+.count{
+  flex:0 0 auto;background:#efe3d8;border-radius:999px;
+  padding:8px 14px;color:var(--wine);font-weight:800;font-size:.88rem;
+}
+
+.room-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+}
+.room-card{
+  background:var(--paper);border:1px solid var(--line);
+  border-radius:22px;padding:0;overflow:hidden;
+  box-shadow:0 10px 24px #1f4a3814;
+}
+.room-head{
+  padding:18px 20px 15px;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  background:linear-gradient(135deg,#f1f8ee,#e4f0df);
+  border-bottom:1px solid var(--line);
+}
+.room-label{font-size:.68rem;letter-spacing:.18em;font-weight:900;color:var(--wine)}
+.room-number{
+  font:700 1.65rem serif;color:var(--deep);line-height:1.15;margin-top:2px;
+  letter-spacing:.06em;
+}
+.people{
+  color:var(--muted);font-size:.7rem;font-weight:800;
+  letter-spacing:.08em;text-align:right;
+}
+.member-list{
+  margin:0;padding:10px 20px 15px 52px;
+  list-style:none;
+}
+.member-list li{
+  padding:9px 2px;border-bottom:1px solid #eee5dc;
+  font-weight:700;
+}
+.member-list li:last-child{border-bottom:0}
+.member-list li::before{content:"•";color:var(--gold);font-weight:900;margin-right:10px}
+
+.notice{
+  margin-top:30px;border-left:4px solid var(--wine);
+  background:#fff;padding:18px 20px;border-radius:0 12px 12px 0;
+  color:var(--muted);
+}
+.notice strong{color:var(--wine)}
+
+footer{
+  background:var(--deep);color:#eadfde;text-align:center;
+  padding:35px 20px;font-size:.84rem;
+}
+
+@media(max-width:880px){
+  .room-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+  .room-grid{grid-template-columns:1fr}
+  .intro{display:block}
+  .count{display:inline-block;margin-top:12px}
+  .hero{padding:58px 18px 52px}
+  .topbar-inner{padding:9px 12px}
+}
+
+.forest-deco{display:flex;justify-content:center;gap:18px;margin-top:22px;font-size:1.6rem;opacity:.9}
+.room-card:nth-child(3n+1){transform:rotate(-.3deg)}
+.room-card:nth-child(3n+2){transform:rotate(.25deg)}
+.room-card:hover{transform:translateY(-3px);transition:.2s}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="back" href="iwate_school_trip_web_shiori_2026_v3.html">← 旅のしおりに戻る</a>
+    <div class="trip-mini">IWATE SCHOOL TRIP 2026</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="eyebrow">ICHINOSEKI HEALTH FOREST</div>
+  <h1>どの部屋かな？</h1>
+  <div class="sub">ROOM ASSIGNMENT</div>
+  <p>一緒に泊まるメンバーをチェック！</p>
+  <div class="forest-deco">🌲 🍃 🌿 ⛰️ 🌲</div>
+</header>
+
+<main>
+  <div class="intro">
+    <div>
+      <h2>ROOM LIST</h2>
+      <p>※部屋番号は決まり次第更新します。</p>
+    </div>
+    <div class="count">14 ROOMS ／ 65 STUDENTS</div>
+  </div>
+
+  <section class="room-grid">
+    
+    <article class="room-card">
+      <div class="room-head">
+        <div>
+          <div class="room-label">ROOM</div>
+          <div class="room-number">＿＿＿＿</div>
+        </div>
+        <div class="people">5 人部屋</div>
+      </div>
+      <ol class="member-list">
+        <li>ゴック アイン</li>
+<li>ティ チャン</li>
+<li>チュエン</li>
+<li>タオ</li>
+<li>ヌー</li>
+      </ol>
+    </article>
+    
+    <article class="room-card">
+      <div class="room-head">
+        <div>
+          <div class="room-label">ROOM</div>
+          <div class="room-number">＿＿＿＿</div>
+        </div>
+        <div class="people">5 人部屋</div>
+      </div>
+      <ol class="member-list">
+        <li>メイ</li>
+<li>メー</li>
+<li>リン</li>
+<li>テッ ター</li>
+<li>タジン</li>
+      </ol>
+    </article>
+    
+    <article class="room-card">
+      <div class="room-head">
+        <div>
+          <div class="room-label">ROOM</div>
+          <div class="room-number">＿＿＿＿</div>
+        </div>
+        <div class="people">5 人部屋</div>
+      </div>
+      <ol class="member-list">
+        <li>ディシャ</li>
+<li>ブヤン</li>
+<li>プン</li>
+<li>ライン</li>
+<li>サリナ</li>
+      </ol>
+    </article>
+    
+    <article class="room-card">
+      <div class="room-head">
+        <div>
+          <div class="room-label">ROOM</div>
+          <div class="room-number">＿＿＿＿</div>
+        </div>
+        <div class="people">4 人部屋</div>
+      </div>
+      <ol class="member-list">
+        <li>トゥオイ</li>
+<li>ジャン</li>
+<li>ラン アイン</li>
+<li>サンゼン</li>
+      </ol>
+    </article>
+    
+    <article class="room-card">
+      <div class="room-head">
+        <div>
+          <div class="room-label">ROOM</div>
+          <div class="room-number">＿＿＿＿</div>
+        </div>
+        <div class="people">5 人部屋</div>
+      </div>
+      <ol class="member-list">
+        <li>タマ</li>
+<li>テイ</li>
+<li>トーラ</li>
+<li>フエ</li>
+<li>ムテイ</li>
+      </ol>
+    </article>
+    
+    <article class="room-card">
+      <div class="room-head">
+        <div>
+          <div class="room-label">ROOM</div>
+          <div class="room-number">＿＿＿＿</div>
+        </div>
+        <div class="people">4 人部屋</div>
+      </div>
+      <ol class="member-list">
+        <li>シュウ</li>
+<li>スー</li>
+<li>ナム</li>
+<li>ヒエン</li>
+      </ol>
+    </article>
+    
+    <article class="room-card">
+      <div class="room-head">
+        <div>
+          <div class="room-label">ROOM</div>
+          <div class="room-number">＿＿＿＿</div>
+        </div>
+        <div class="people">5 人部屋</div>
+      </div>
+      <ol class="member-list">
+        <li>ギア</li>
+<li>セイ ライ</li>
+<li>タクハン</li>
+<li>ニャット アイン</li>
+<li>クアン アイン</li>
+      </ol>
+    </article>
+    
+    <article class="room-card">
+      <div class="room-head">
+        <div>
+          <div class="room-label">ROOM</div>
+          <div class="room-number">＿＿＿＿</div>
+        </div>
+        <div class="people">5 人部屋</div>
+      </div>
+      <ol class="member-list">
+        <li>ソン</li>
+<li>ザキ</li>
+<li>ビキ</li>
+<li>シャフワン</li>
+<li>サイ</li>
+      </ol>
+    </article>
+    
+    <article class="room-card">
+      <div class="room-head">
+        <div>
+          <div class="room-label">ROOM</div>
+          <div class="room-number">＿＿＿＿</div>
+        </div>
+        <div class="people">4 人部屋</div>
+      </div>
+      <ol class="member-list">
+        <li>ハイ</li>
+<li>ミン</li>
+<li>ガテリエ</li>
+<li>ロホマン</li>
+      </ol>
+    </article>
+    
+    <article class="room-card">
+      <div class="room-head">
+        <div>
+          <div class="room-label">ROOM</div>
+          <div class="room-number">＿＿＿＿</div>
+        </div>
+        <div class="people">4 人部屋</div>
+      </div>
+      <ol class="member-list">
+        <li>ヒエウ</li>
+<li>ティエン</li>
+<li>ソン</li>
+<li>バン フー</li>
+      </ol>
+    </article>
+    
+    <article class="room-card">
+      <div class="room-head">
+        <div>
+          <div class="room-label">ROOM</div>
+          <div class="room-number">＿＿＿＿</div>
+        </div>
+        <div class="people">4 人部屋</div>
+      </div>
+      <ol class="member-list">
+        <li>マイン</li>
+<li>ハ</li>
+<li>ラム</li>
+<li>クアン</li>
+      </ol>
+    </article>
+    
+    <article class="room-card">
+      <div class="room-head">
+        <div>
+          <div class="room-label">ROOM</div>
+          <div class="room-number">＿＿＿＿</div>
+        </div>
+        <div class="people">5 人部屋</div>
+      </div>
+      <ol class="member-list">
+        <li>フー</li>
+<li>メイ</li>
+<li>ソウ</li>
+<li>ズエ</li>
+<li>サンティ</li>
+      </ol>
+    </article>
+    
+    <article class="room-card">
+      <div class="room-head">
+        <div>
+          <div class="room-label">ROOM</div>
+          <div class="room-number">＿＿＿＿</div>
+        </div>
+        <div class="people">5 人部屋</div>
+      </div>
+      <ol class="member-list">
+        <li>ソナ</li>
+<li>アンズ</li>
+<li>ゴック アイン</li>
+<li>アン フォン</li>
+<li>ススミタ</li>
+      </ol>
+    </article>
+    
+    <article class="room-card">
+      <div class="room-head">
+        <div>
+          <div class="room-label">ROOM</div>
+          <div class="room-number">＿＿＿＿</div>
+        </div>
+        <div class="people">5 人部屋</div>
+      </div>
+      <ol class="member-list">
+        <li>トゥ フォン</li>
+<li>クスマ</li>
+<li>チャム</li>
+<li>ティ ズエン</li>
+<li>ミー ズエン</li>
+      </ol>
+    </article>
+    
+  </section>
+
+  <div class="notice">
+    <strong>部屋番号は現在未定です。</strong><br>
+    メンバーはこの一覧で確認し、部屋番号は決定後に更新します。
+  </div>
+</main>
+
+<footer>
+  専門学校東京国際ビジネスカレッジ｜2026 岩手修学旅行
+</footer>
+
+</body>
+</html>
