@@ -137,9 +137,66 @@ footer strong{font:1.55rem serif}
   .trip-info-link{grid-template-columns:1fr}
   .trip-info-actions{justify-content:flex-start}
   .spots-title{white-space:normal}
+  .rough-grid{grid-template-columns:1fr;gap:12px}
+  .rough-card{display:grid;grid-template-columns:minmax(0,1fr) 104px;min-height:150px}
+  .rough-body{padding:17px}
+  .rough-thumb{height:100%;min-height:150px;order:2}
+  .rough-title{font-size:1.18rem}
+  .rough-route{font-size:.79rem;margin-bottom:10px}
+  .rough-point{grid-template-columns:55px 1fr;font-size:.84rem}
+  .rough-point b{font-size:.65rem}
+  .day{margin:28px 0}
+  .events{border-left:0;padding-left:0}
+  .event{padding:18px;margin-bottom:10px}
+  .event:before{display:none}
+  .time{font-size:1rem}
+  .daytag{border-radius:13px;padding:14px}
+  .disaster-step{grid-template-columns:48px 1fr;padding:15px}
+  .disaster-no{width:40px;height:40px}
+  .dark{padding-top:58px;padding-bottom:58px}
 }
 
-.rough-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.rough-card{overflow:hidden;padding:0}.rough-card img{height:220px;width:100%;object-fit:cover}.rough-body{padding:22px}.rough-day{font-size:.76rem;letter-spacing:.14em;color:var(--wine);font-weight:800}.rough-title{font:1.5rem serif;color:var(--deep);margin:5px 0 8px}.rough-route{font-size:.9rem;color:var(--muted);margin-bottom:10px}.darkgrid{grid-template-columns:repeat(4,1fr)}
+.rough-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rough-card{overflow:hidden;padding:0;position:relative}
+.rough-card.day1{border-top:5px solid #6d8b64}
+.rough-card.day2{border-top:5px solid #70818a}
+.rough-card.day3{border-top:5px solid #bf7a43}
+.rough-body{padding:20px}
+.rough-day{font-size:.74rem;letter-spacing:.13em;font-weight:900}
+.day1 .rough-day{color:#5d7855}.day2 .rough-day{color:#64747c}.day3 .rough-day{color:#a66131}
+.rough-title{font:700 1.35rem serif;color:var(--deep);margin:5px 0 7px;line-height:1.35}
+.rough-route{font-size:.84rem;color:var(--muted);margin-bottom:12px}
+.rough-points{display:grid;gap:7px}
+.rough-point{display:grid;grid-template-columns:62px 1fr;gap:8px;align-items:center;font-size:.9rem}
+.rough-point b{font-size:.72rem;letter-spacing:.05em;text-align:center;padding:4px 7px;border-radius:999px;background:#f1e7dd;color:var(--wine)}
+.rough-thumb{height:120px;width:100%;object-fit:cover}
+.day1 .rough-thumb{object-position:center 52%}
+.day2 .rough-thumb{object-position:center 50%}
+.day3 .rough-thumb{object-position:center 48%}
+
+.event-label{display:inline-block;font-size:.67rem;font-weight:900;letter-spacing:.08em;border-radius:999px;padding:3px 8px;margin-bottom:7px;background:#f0e5dd;color:var(--wine)}
+.event-label.move{background:#e9eff1;color:#506c76}
+.event-label.life{background:#edf1e7;color:#5f754f}
+.event-label.food{background:#f6eadc;color:#9a6535}
+.event-label.study{background:#ebe8ee;color:#66586f}
+.event-label.meeting{background:#f4e1e3;color:#843844}
+.event-label.fun{background:#f5ead6;color:#9b6b2f}
+.event strong.important{color:var(--danger)}
+.bus-note{margin-top:7px;font-size:.82rem;color:var(--muted)}
+
+.disaster-intro{max-width:760px}
+.disaster-steps{margin-top:30px;display:grid;gap:12px;max-width:820px}
+.disaster-step{display:grid;grid-template-columns:58px 1fr;gap:15px;align-items:start;background:var(--dark2);border:1px solid #454748;border-radius:12px;padding:17px}
+.disaster-no{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#4a4d4e;color:#d7b89d;font:700 1.05rem serif}
+.disaster-step h3{margin:0 0 4px;color:#fff;font-size:1.05rem}
+.disaster-step p{margin:0;color:#cfccc7;font-size:.92rem}
+.disaster-arrow{margin:-4px 0 -4px 22px;color:#8f8c87;font-size:1.15rem}
+.question-box{margin-top:30px;border:1px solid #6d665e;background:#242627;border-radius:15px;padding:24px;max-width:820px}
+.question-box .q-label{font-size:.7rem;letter-spacing:.14em;color:#d7b89d;font-weight:900}
+.question-box p{font:700 clamp(1.15rem,2.5vw,1.55rem) serif;color:#fff;margin:8px 0}
+.disaster-close{margin-top:24px;font-family:serif;font-size:1.2rem;color:#fff}
+
+.darkgrid{grid-template-columns:repeat(4,1fr)}
 </style>
 </head>
 <body>
@@ -183,12 +240,50 @@ footer strong{font:1.55rem serif}
 </section>
 
 <section id="rough">
-  <div class="ey">3 DAYS AT A GLANCE</div><h2>3日間を、ざっくり見る。</h2>
-  <p class="lead">細かい時間の前に、「どんな3日間なのか」をつかんでおこう。</p>
+  <div class="ey">3 DAYS AT A GLANCE</div><h2>3日間を、ざっくり見る</h2>
+  <p class="lead">まずは「今日は何をする日？」だけつかもう。細かい時間は下の詳細スケジュールで確認。</p>
+
   <div class="rough-grid">
-    <article class="card rough-card"><img src="https://static.gltjp.com/glt/data/directory/14000/13700/20220923_214308_2219fd00_w1920.webp" alt="厳美渓"><div class="rough-body"><div class="rough-day">DAY 1｜10/07</div><div class="rough-title">岩手の自然に出会う</div><div class="rough-route">東京 → 厳美渓 → いちのせき健康の森</div><p>長いバス移動を経て岩手へ。まずは厳美渓で、岩手の自然を自分の目で見て、感じる。夜はみんなでBBQ。</p></div></article>
-    <article class="card rough-card"><img src="https://www.thr.mlit.go.jp/m-park/common/imgs/memorial_park/img_iwate_04.jpg" alt="高田松原津波復興祈念公園"><div class="rough-body"><div class="rough-day">DAY 2｜10/08</div><div class="rough-title">過去に思いを馳せ、今を見る</div><div class="rough-route">陸前高田 → 一関 → 平泉</div><p>高田松原津波復興祈念公園で震災学習。ガイドさんの言葉を聞き逃さず、当時に思いを馳せながら、現在の陸前高田を見つめる。その後は一関でグループ活動、中尊寺で歴史と文化に触れる。</p></div></article>
-    <article class="card rough-card"><img src="https://crea.ismcdn.jp/mwimgs/9/a/-/img_9a635a76a1be2e46bbb70f06c58b8e08136607.jpg" alt="わんこそば"><div class="rough-body"><div class="rough-day">DAY 3｜10/09</div><div class="rough-title">岩手の文化を味わい、東京へ</div><div class="rough-route">一関 → 花巻 → 東京</div><p>最後は岩手の食文化。わんこそばとお土産を楽しみ、3日間の学びと思い出を持って東京へ。</p></div></article>
+    <article class="card rough-card day1">
+      <div class="rough-body">
+        <div class="rough-day">DAY 1｜10/07 WED</div>
+        <div class="rough-title">岩手の自然に出会う</div>
+        <div class="rough-route">東京 → 厳美渓 → 宿</div>
+        <div class="rough-points">
+          <div class="rough-point"><b>見る</b><span>厳美渓</span></div>
+          <div class="rough-point"><b>楽しむ</b><span>みんなでBBQ</span></div>
+        </div>
+      </div>
+      <img class="rough-thumb" src="https://static.gltjp.com/glt/data/directory/14000/13700/20220923_214308_2219fd00_w1920.webp" alt="厳美渓">
+    </article>
+
+    <article class="card rough-card day2">
+      <div class="rough-body">
+        <div class="rough-day">DAY 2｜10/08 THU</div>
+        <div class="rough-title">過去に思いを馳せ、今を見る</div>
+        <div class="rough-route">陸前高田 → 一関 → 平泉</div>
+        <div class="rough-points">
+          <div class="rough-point"><b>学ぶ</b><span>震災・復興</span></div>
+          <div class="rough-point"><b>動く</b><span>一関グループ活動</span></div>
+          <div class="rough-point"><b>知る</b><span>中尊寺</span></div>
+        </div>
+      </div>
+      <img class="rough-thumb" src="https://www.thr.mlit.go.jp/m-park/common/imgs/memorial_park/img_iwate_04.jpg" alt="高田松原津波復興祈念公園">
+    </article>
+
+    <article class="card rough-card day3">
+      <div class="rough-body">
+        <div class="rough-day">DAY 3｜10/09 FRI</div>
+        <div class="rough-title">岩手の文化を味わう</div>
+        <div class="rough-route">一関 → 花巻 → 東京</div>
+        <div class="rough-points">
+          <div class="rough-point"><b>食べる</b><span>わんこそば</span></div>
+          <div class="rough-point"><b>買う</b><span>お土産</span></div>
+          <div class="rough-point"><b>帰る</b><span>東京へ</span></div>
+        </div>
+      </div>
+      <img class="rough-thumb" src="https://crea.ismcdn.jp/mwimgs/9/a/-/img_9a635a76a1be2e46bbb70f06c58b8e08136607.jpg" alt="わんこそば">
+    </article>
   </div>
 </section>
 
@@ -200,9 +295,7 @@ footer strong{font:1.55rem serif}
       <p class="lead" style="margin:0">部屋割りや、一関での自由行動のグループ・予定を確認できます。</p>
     </div>
     <div class="trip-info-actions">
-     <a class="button" href=href="./iwate_room_assignment_2026_green.html" target="_blank" rel="noopener">
-  ROOM｜部屋割りを見る →
-</a>
+      <a class="button" href="./iwate_room_assignment_2026_green.html">ROOM｜部屋割りを見る →</a>
       <a class="button" href="iwate_ichinoseki_free_time_live_v2.html">FREE TIME｜自由行動を見る →</a>
     </div>
   </div>
@@ -210,35 +303,221 @@ footer strong{font:1.55rem serif}
 
 <section id="schedule">
 <div class="ey">DETAILED SCHEDULE</div><h2>詳細スケジュール</h2>
-<p class="lead">ここからは時間まで確認。集合時間と出発時間を間違えないようにしましょう。</p>
+<p class="lead">観光だけでなく、起床・移動・食事・入浴・消灯まで確認できます。特に集合時間は必ずチェック。</p>
 
 <div class="day">
   <div class="daytag"><b>DAY 1</b>10/07 WED<span class="meet">集合 06:45／出発 07:00</span></div>
   <div class="events">
-    <div class="event"><div class="time">06:45 集合 → 07:00 出発</div><h3>学校2号館前</h3><div class="note">朝食は自分で用意し、バス内で食べてもOK。遅刻厳禁！</div></div>
-    <div class="event"><div class="time">11:00頃–12:30</div><h3>安達太良SA｜昼食＆休憩</h3><div class="note"><b>ここで2日目の朝食も買っておこう。</b></div></div>
-    <div class="event"><div class="time">15:00–16:00</div><h3>厳美渓｜散策</h3><div class="note">岩手の自然を、自分の目で見て、感じる。</div></div>
-    <div class="event"><div class="time">17:00</div><h3>いちのせき健康の森 到着</h3><div class="note">夕食はBBQ。焼きたいものがある人は持参OK。</div></div>
+    <div class="event">
+      <span class="event-label meeting">集合</span>
+      <div class="time">06:45 集合 → 07:00 出発</div>
+      <h3>学校2号館前</h3>
+      <div class="note">朝食は自分で用意。バス内で食べてもOK。<strong class="important">遅刻厳禁。</strong></div>
+    </div>
+
+    <div class="event">
+      <span class="event-label move">BUS</span>
+      <div class="time">07:00–11:00頃</div>
+      <h3>東京 → 安達太良SA</h3>
+      <div class="note">長時間のバス移動。道路状況により時間は前後します。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label food">昼食</span>
+      <div class="time">11:00頃–12:30</div>
+      <h3>安達太良SA｜昼食＆休憩</h3>
+      <div class="note"><b>ここで2日目の朝食も買っておこう。</b></div>
+    </div>
+
+    <div class="event">
+      <span class="event-label move">BUS</span>
+      <div class="time">12:30–15:00頃</div>
+      <h3>安達太良SA → 厳美渓</h3>
+    </div>
+
+    <div class="event">
+      <span class="event-label fun">見る</span>
+      <div class="time">15:00–16:00</div>
+      <h3>厳美渓｜散策</h3>
+      <div class="note">岩手の自然を、自分の目で見て、感じる。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label move">BUS</span>
+      <div class="time">16:00–17:00頃</div>
+      <h3>厳美渓 → いちのせき健康の森</h3>
+    </div>
+
+    <div class="event">
+      <span class="event-label food">夕食</span>
+      <div class="time">17:00–19:00</div>
+      <h3>BBQ</h3>
+      <div class="note">焼きたいものがある人は持参OK。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label life">入浴</span>
+      <div class="time">19:00–21:00</div>
+      <h3>お風呂</h3>
+      <div class="note">この時間内で自由に入浴します。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label meeting">集合</span>
+      <div class="time">21:00</div>
+      <h3>視聴覚室に集合</h3>
+      <div class="note">翌日の予定・集合時間などを簡単に確認します。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label life">就寝</span>
+      <div class="time">22:00</div>
+      <h3>消灯</h3>
+    </div>
   </div>
 </div>
 
 <div class="day">
   <div class="daytag"><b>DAY 2</b>10/08 THU<span class="meet">集合 07:20／出発 07:30</span></div>
   <div class="events">
-    <div class="event"><div class="time">07:20 集合 → 07:30 出発</div><h3>いちのせき健康の森</h3><div class="note">朝食は前日に購入したもの、または自宅から持参したものを各自で。</div></div>
-    <div class="event"><div class="time">09:50頃–11:30頃</div><h3>高田松原津波復興祈念公園｜震災学習</h3><div class="note">ガイドさんとともに現地を歩き、震災当時の出来事に思いを馳せながら、現在の陸前高田の姿を見つめます。</div></div>
-    <div class="event"><div class="time">13:30頃</div><h3>一ノ関駅周辺・城下町｜自由散策</h3><div class="note">各グループで立てた計画に沿って活動。昼食も自由時間の中で。</div></div>
-    <div class="event"><div class="time">15:30–17:00</div><h3>平泉・中尊寺｜参拝・見学・散策</h3></div>
-    <div class="event"><div class="time">18:00</div><h3>いちのせき健康の森 到着</h3><div class="note">夕食は全員で食べます。</div></div>
+    <div class="event">
+      <span class="event-label life">起床</span>
+      <div class="time">06:30</div>
+      <h3>起床・身支度</h3>
+      <div class="note">朝食は前日に買ったものを、部屋またはバス移動中に各自で食べます。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label meeting">集合</span>
+      <div class="time">07:20 集合 → 07:30 出発</div>
+      <h3>いちのせき健康の森</h3>
+    </div>
+
+    <div class="event">
+      <span class="event-label move">BUS</span>
+      <div class="time">07:30–09:50頃</div>
+      <h3>一関 → 陸前高田</h3>
+      <div class="note">途中休憩なし。必要なものは乗車前に準備しておこう。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label study">学ぶ</span>
+      <div class="time">09:50頃–11:30頃</div>
+      <h3>高田松原津波復興祈念公園｜震災学習</h3>
+      <div class="note">ガイドさんと現地を歩き、当時に思いを馳せながら、現在の陸前高田を見つめます。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label move">BUS</span>
+      <div class="time">11:30–13:30頃</div>
+      <h3>陸前高田 → 一関</h3>
+      <div class="note">昼食はこのあと、一関の自由行動中に各グループで取ります。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label fun">GROUP</span>
+      <div class="time">13:30 START → 15:30 GOAL（変更有）</div>
+      <h3>一関｜自由行動</h3>
+      <div class="note">各グループで立てた計画に沿って活動。昼食もこの時間の中で。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label move">BUS</span>
+      <div class="time">15:30</div>
+      <h3>一関集合 → 中尊寺へ</h3>
+    </div>
+
+    <div class="event">
+      <span class="event-label study">歴史・文化</span>
+      <div class="time">到着後–17:00</div>
+      <h3>平泉・中尊寺｜参拝・見学・散策</h3>
+    </div>
+
+    <div class="event">
+      <span class="event-label move">BUS</span>
+      <div class="time">17:00–18:00頃</div>
+      <h3>中尊寺 → いちのせき健康の森</h3>
+      <div class="note">バス移動は約1時間の予定です。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label food">夕食</span>
+      <div class="time">18:30</div>
+      <h3>夕食</h3>
+      <div class="note">宿泊施設で全員一緒に食べます。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label life">入浴</span>
+      <div class="time">19:00–21:00</div>
+      <h3>お風呂</h3>
+      <div class="note">この時間内で自由に入浴します。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label meeting">集合</span>
+      <div class="time">21:00</div>
+      <h3>視聴覚室に集合</h3>
+      <div class="note">翌日の予定・退所について簡単に確認します。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label life">就寝</span>
+      <div class="time">22:00</div>
+      <h3>消灯</h3>
+    </div>
   </div>
 </div>
 
 <div class="day">
   <div class="daytag"><b>DAY 3</b>10/09 FRI<span class="meet">集合 08:20／出発 08:30</span></div>
   <div class="events">
-    <div class="event"><div class="time">08:20 集合 → 08:30 出発</div><h3>いちのせき健康の森</h3><div class="note">朝食は各自・任意。10:00から昼食なので、無理に食べなくてもOK。</div></div>
-    <div class="event"><div class="time">10:00–11:30</div><h3>花巻金婚亭｜わんこそば＆お買い物</h3></div>
-    <div class="event"><div class="time">19:00頃</div><h3>学校前 到着予定</h3><div class="note">道路状況により前後する可能性があります。</div></div>
+    <div class="event">
+      <span class="event-label life">起床</span>
+      <div class="time">06:30</div>
+      <h3>起床</h3>
+      <div class="note"><b>朝食はありません。</b>10:00からわんこそばです。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label life">退所準備</span>
+      <div class="time">06:30–08:20</div>
+      <h3>身支度・荷物整理・部屋の清掃</h3>
+      <div class="note">忘れ物がないか、部屋を出る前に必ず確認。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label meeting">集合</span>
+      <div class="time">08:20 集合 → 08:30 出発</div>
+      <h3>いちのせき健康の森</h3>
+      <div class="note">荷物・部屋の確認をしてから出発します。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label move">BUS</span>
+      <div class="time">08:30–10:00頃</div>
+      <h3>一関 → 花巻</h3>
+    </div>
+
+    <div class="event">
+      <span class="event-label food">昼食</span>
+      <div class="time">10:00–11:30</div>
+      <h3>花巻金婚亭｜わんこそば＆お買い物</h3>
+    </div>
+
+    <div class="event">
+      <span class="event-label move">BUS</span>
+      <div class="time">11:30–19:00頃</div>
+      <h3>花巻 → 東京</h3>
+      <div class="note">SA・PAで<strong>1～2時間に1回を目安に休憩</strong>します。休憩場所・時間は道路状況により調整します。</div>
+    </div>
+
+    <div class="event">
+      <span class="event-label meeting">到着</span>
+      <div class="time">19:00頃</div>
+      <h3>学校前 到着予定 → 解散</h3>
+      <div class="note">道路状況により前後します。到着後はそのまま速やかに帰宅しましょう。</div>
+    </div>
   </div>
 </div>
 </section>
@@ -268,17 +547,46 @@ footer strong{font:1.55rem serif}
 </main>
 
 <section class="dark" id="disaster">
-  <div class="ey">REMEMBER · FEEL · SEE THE PRESENT</div><h2>震災について学ぶ</h2>
-  <p class="lead">高田松原津波復興祈念公園での時間は、この修学旅行の中心的な学びの一つです。</p>
-  <blockquote>あの日に思いを馳せ、今の陸前高田を見つめる。</blockquote>
-  <p>震災から年月が経った今、陸前高田には新しい町や暮らしがあります。しかし、その「今」は、震災の経験と復興への長い歩みの上につくられています。ガイドさんの話を聞きながら、当時の出来事に思いを馳せ、目の前にある現在の風景を自分の目で見てください。</p>
-  <div class="darkgrid">
-    <div><b>見る</b>当時の痕跡と、現在の町の姿を自分の目で見る。</div>
-    <div><b>聞き逃さない</b>ガイドさんの一つ一つの言葉を聞き逃さず、その背景まで想像する。</div>
-    <div><b>思いを馳せる</b>その場所で暮らしていた人、その日を経験した人のことを想像する。</div>
-    <div><b>今を見つめる</b>復興した町の姿を見て、「復興とは何か」「ともに生きるとは何か」を考える。</div>
+  <div class="ey">REMEMBER · FEEL · SEE THE PRESENT</div>
+  <h2>震災について学ぶ</h2>
+
+  <div class="disaster-intro">
+    <blockquote>あの日に思いを馳せ、<br>今の陸前高田を見つめる。</blockquote>
+    <p>高田松原津波復興祈念公園を、ガイドさんと歩きます。過去を知るだけではなく、その経験の上にある「今」を自分の目で見てください。</p>
   </div>
-  <p style="margin-top:28px;font-family:serif;font-size:1.2rem;color:#fff">過去だけを見るのではなく、過去を知った上で「今」を見る。</p>
+
+  <div class="disaster-steps">
+    <div class="disaster-step">
+      <div class="disaster-no">01</div>
+      <div><h3>見る</h3><p>当時の痕跡と、現在の町を見る。</p></div>
+    </div>
+    <div class="disaster-arrow">↓</div>
+
+    <div class="disaster-step">
+      <div class="disaster-no">02</div>
+      <div><h3>聞き逃さない</h3><p>ガイドさんの言葉を、一つ一つ聞く。</p></div>
+    </div>
+    <div class="disaster-arrow">↓</div>
+
+    <div class="disaster-step">
+      <div class="disaster-no">03</div>
+      <div><h3>思いを馳せる</h3><p>ここで暮らしていた人、その日を経験した人を想像する。</p></div>
+    </div>
+    <div class="disaster-arrow">↓</div>
+
+    <div class="disaster-step">
+      <div class="disaster-no">04</div>
+      <div><h3>今を見つめる</h3><p>復興した町を見て、「復興とは何か」を考える。</p></div>
+    </div>
+  </div>
+
+  <div class="question-box">
+    <div class="q-label">現地で考えてほしいこと</div>
+    <p>「復興する」とは、元に戻ることだろうか。</p>
+    <p>「ともに生きる」とは、どういうことだろう。</p>
+  </div>
+
+  <p class="disaster-close">過去だけを見るのではなく、<b>過去を知った上で「今」を見る。</b></p>
 </section>
 
 <main>
@@ -288,7 +596,7 @@ footer strong{font:1.55rem serif}
 <div class="food">
   <div class="card"><h3>DAY 1</h3><div class="meal"><b>朝</b> 自分で用意／バス内OK</div><div class="meal"><b>昼</b> 安達太良SAで各自</div><div class="meal"><b>夜</b> BBQ</div></div>
   <div class="card"><h3>DAY 2</h3><div class="meal"><b>朝</b> 前日に購入 or 持参</div><div class="meal"><b>昼</b> 一関で自由に</div><div class="meal"><b>夜</b> 宿泊施設で全員一緒</div></div>
-  <div class="card"><h3>DAY 3</h3><div class="meal"><b>朝</b> 各自・任意</div><div class="meal"><b>昼 10:00</b> わんこそば</div><div class="meal"><b>夜</b> 帰着後、各自</div>
+  <div class="card"><h3>DAY 3</h3><div class="meal"><b>朝</b> なし</div><div class="meal"><b>昼 10:00</b> わんこそば</div><div class="meal"><b>夜</b> 帰着後、各自</div>
     <div class="food-photo"><img src="https://crea.ismcdn.jp/mwimgs/9/a/-/img_9a635a76a1be2e46bbb70f06c58b8e08136607.jpg" alt="わんこそば"></div>
   </div>
 </div>
