@@ -197,6 +197,119 @@ footer strong{font:1.55rem serif}
 .disaster-close{margin-top:24px;font-family:serif;font-size:1.2rem;color:#fff}
 
 .darkgrid{grid-template-columns:repeat(4,1fr)}
+
+/* ===== MOBILE FIRST FIXES ===== */
+@media (max-width: 700px){
+  /* horizontal scroll nav */
+  nav .nav-inner{
+    overflow-x:auto;
+    overflow-y:hidden;
+    white-space:nowrap;
+    justify-content:flex-start;
+    gap:0;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  nav .nav-inner::-webkit-scrollbar{display:none}
+  nav .nav-inner a{
+    flex:0 0 auto;
+    padding:14px 18px;
+    font-size:.92rem;
+  }
+
+  /* compact section heading */
+  #rough h2{
+    font-size:clamp(2rem,10vw,2.75rem);
+    line-height:1.18;
+    margin-bottom:12px;
+    letter-spacing:.01em;
+  }
+  #rough .ey{
+    font-size:.72rem;
+    letter-spacing:.16em;
+  }
+  #rough .rough-lead{
+    font-size:1rem;
+    line-height:1.65;
+    margin-bottom:20px;
+  }
+
+  /* force one card per row */
+  #rough .rough-grid{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+
+  #rough .rough-card{
+    display:flex !important;
+    flex-direction:column !important;
+    width:100% !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    overflow:hidden;
+    border-radius:18px;
+  }
+
+  #rough .rough-body{
+    order:1;
+    width:100%;
+    min-width:0;
+    padding:18px 18px 16px;
+  }
+
+  #rough .rough-thumb{
+    order:2;
+    width:100% !important;
+    height:150px !important;
+    min-height:150px !important;
+    object-fit:cover;
+    display:block;
+  }
+
+  #rough .rough-title{
+    font-size:1.28rem !important;
+    line-height:1.45 !important;
+    margin:5px 0 6px !important;
+    white-space:normal !important;
+    word-break:keep-all !important;
+    overflow-wrap:normal !important;
+  }
+
+  #rough .rough-route{
+    font-size:.86rem !important;
+    line-height:1.55 !important;
+    white-space:normal !important;
+    word-break:keep-all !important;
+  }
+
+  #rough .rough-points{
+    display:grid;
+    gap:8px;
+  }
+
+  #rough .rough-point{
+    display:grid !important;
+    grid-template-columns:58px minmax(0,1fr) !important;
+    gap:8px !important;
+    align-items:center;
+    font-size:.9rem !important;
+    min-width:0;
+  }
+
+  #rough .rough-point b{
+    font-size:.69rem !important;
+    white-space:nowrap;
+  }
+
+  #rough .rough-point span{
+    min-width:0;
+    white-space:normal;
+    word-break:keep-all;
+    overflow-wrap:break-word;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -241,7 +354,7 @@ footer strong{font:1.55rem serif}
 
 <section id="rough">
   <div class="ey">3 DAYS AT A GLANCE</div><h2>3日間を、ざっくり見る</h2>
-  <p class="lead">まずは「今日は何をする日？」だけつかもう。細かい時間は下の詳細スケジュールで確認。</p>
+  <p class="lead rough-lead">まずは3日間の流れを確認。細かい時間は詳細スケジュールへ。</p>
 
   <div class="rough-grid">
     <article class="card rough-card day1">
