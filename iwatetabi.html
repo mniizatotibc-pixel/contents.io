@@ -20,18 +20,45 @@ a{color:inherit}
   min-height:88vh;position:relative;display:grid;place-items:center;overflow:hidden;color:#fff;text-align:center;
   background:#32171d;
 }
-.hero-collage{position:absolute;inset:0;display:grid;grid-template-columns:1.15fr .85fr 1fr;grid-template-rows:1fr 1fr;gap:4px}
-.hero-collage img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(.96)}
-.hero-collage img:nth-child(1){grid-row:1/3}
-.hero-collage img:nth-child(2){grid-column:2/4}
+.hero-collage{
+  position:absolute;inset:0;display:grid;
+  grid-template-columns:50% 25% 25%;
+  grid-template-rows:50% 50%;
+  gap:4px;background:#2d141a;
+}
+.hero-collage img{
+  width:100%;height:100%;object-fit:cover;
+  filter:saturate(.92) contrast(.98);
+}
+.hero-collage img:nth-child(1){grid-column:1;grid-row:1/3;object-position:50% 50%}
+.hero-collage img:nth-child(2){grid-column:2/4;grid-row:1;object-position:50% 44%}
+.hero-collage img:nth-child(3){grid-column:2;grid-row:2;object-position:50% 50%}
+.hero-collage img:nth-child(4){grid-column:3;grid-row:2;object-position:50% 50%}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(47,13,21,.82),rgba(71,20,29,.56),rgba(47,13,21,.78))}
-.hero-inner{position:relative;z-index:2;max-width:920px;padding:70px 22px}
+.hero-inner{position:relative;z-index:2;max-width:980px;padding:70px 22px}
 .kicker{letter-spacing:.22em;font-size:.8rem;opacity:.9}
 .hero h1{font-family:serif;font-size:clamp(2.9rem,8vw,6.2rem);line-height:1.09;margin:16px 0;text-shadow:0 4px 24px #0008}
 .hero h1 em{font-style:normal;color:#efd4c1}
 .hero h1 small{display:block;font:500 .33em "Yu Gothic";margin-top:24px;letter-spacing:.08em}
 .hero p{max-width:700px;margin:22px auto;font-size:1.04rem}
-.date{display:inline-block;border:1px solid #ffffff88;border-radius:99px;padding:8px 20px;background:#32171d38;backdrop-filter:blur(5px)}
+.hero-info{
+  margin:30px auto 0;display:grid;grid-template-columns:1fr 1.25fr 1.15fr;
+  max-width:900px;border:1px solid #ffffff55;border-radius:18px;overflow:hidden;
+  background:#2b1118a6;backdrop-filter:blur(7px)
+}
+.hero-info-item{padding:14px 18px;text-align:left;border-right:1px solid #ffffff33}
+.hero-info-item:last-child{border-right:0}
+.hero-info-item b{display:block;font-size:.72rem;letter-spacing:.12em;color:#e7c6ac;margin-bottom:3px}
+.hero-info-item span,.hero-info-item a{font-size:.94rem;color:#fff;text-decoration:none}
+.hero-info-item a{text-decoration:underline;text-underline-offset:3px}
+.trip-info-link{
+  background:linear-gradient(135deg,#fffaf3,#f4e7dc);border:1px solid #dfcbbb;border-radius:20px;
+  padding:25px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center
+}
+.trip-info-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.trip-info-actions .button{margin:0}
+.spots-title{font-size:clamp(1.45rem,2.65vw,2.55rem);white-space:nowrap}
+
 nav{position:sticky;top:0;z-index:20;background:#421d25f4;color:#fff;overflow:auto;white-space:nowrap;box-shadow:0 4px 20px #0002}
 nav div{max-width:1120px;margin:auto;display:flex}
 nav a{color:white;text-decoration:none;padding:13px 15px;font-size:.86rem}
@@ -99,10 +126,20 @@ footer strong{font:1.55rem serif}
 @media(max-width:800px){
   .grid,.food,.money-grid,.packs,.spot-grid,.stay-grid,.darkgrid,.missions,.rough-grid,.overview-grid{grid-template-columns:1fr}
   .day{grid-template-columns:1fr}.daytag{position:static;text-align:left}.daytag .meet{display:inline;margin-left:10px;border:0;padding:0}
-  .hero-collage{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}.hero-collage img:nth-child(1){grid-row:auto}.hero-collage img:nth-child(2){grid-column:auto}
+  .hero-collage{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+  .hero-collage img:nth-child(1){grid-column:1;grid-row:1}
+  .hero-collage img:nth-child(2){grid-column:2;grid-row:1}
+  .hero-collage img:nth-child(3){grid-column:1;grid-row:2}
+  .hero-collage img:nth-child(4){grid-column:2;grid-row:2}
+  .hero-info{grid-template-columns:1fr}
+  .hero-info-item{border-right:0;border-bottom:1px solid #ffffff33}
+  .hero-info-item:last-child{border-bottom:0}
+  .trip-info-link{grid-template-columns:1fr}
+  .trip-info-actions{justify-content:flex-start}
+  .spots-title{white-space:normal}
 }
 
-.overview-box{background:linear-gradient(135deg,#fffaf4,#f4e8de);border:1px solid #dfcbbb;border-radius:20px;padding:26px}.overview-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.overview-item{padding:14px 0;border-bottom:1px solid #e3d5ca}.overview-item b{display:block;color:var(--wine);font-size:.84rem;letter-spacing:.05em}.overview-item span{font-size:1.05rem}.rough-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.rough-card{overflow:hidden;padding:0}.rough-card img{height:220px;width:100%;object-fit:cover}.rough-body{padding:22px}.rough-day{font-size:.76rem;letter-spacing:.14em;color:var(--wine);font-weight:800}.rough-title{font:1.5rem serif;color:var(--deep);margin:5px 0 8px}.rough-route{font-size:.9rem;color:var(--muted);margin-bottom:10px}.darkgrid{grid-template-columns:repeat(4,1fr)}
+.rough-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.rough-card{overflow:hidden;padding:0}.rough-card img{height:220px;width:100%;object-fit:cover}.rough-body{padding:22px}.rough-day{font-size:.76rem;letter-spacing:.14em;color:var(--wine);font-weight:800}.rough-title{font:1.5rem serif;color:var(--deep);margin:5px 0 8px}.rough-route{font-size:.9rem;color:var(--muted);margin-bottom:10px}.darkgrid{grid-template-columns:repeat(4,1fr)}
 </style>
 </head>
 <body>
@@ -118,33 +155,22 @@ footer strong{font:1.55rem serif}
     <div class="kicker">SCHOOL TRIP 2026 · IWATE</div>
     <h1>岩手から学ぶ<br><em>「復興」と「共生」</em><small>見て、聞いて、考えて、自分の言葉で伝える3日間。</small></h1>
     <p>自然、歴史、文化、食、そして震災からの復興。岩手で人と地域のつながりに触れ、「ともに生きる」ということを考えよう。</p>
-    <span class="date">2026.10.07 WED — 10.09 FRI</span>
+    <div class="hero-info">
+      <div class="hero-info-item"><b>日程</b><span>2026年10月7日（水）～10月9日（金）</span></div>
+      <div class="hero-info-item"><b>行先</b><span>岩手県｜一関・陸前高田・平泉・花巻</span></div>
+      <div class="hero-info-item"><b>宿泊</b><span>いちのせき健康の森　<a href="http://matsurube.web.fc2.com/index.html" target="_blank" rel="noopener">公式HP ↗</a></span></div>
+    </div>
   </div>
 </header>
 
 <nav><div>
-<a href="#overview">概要</a><a href="#purpose">旅の目的</a><a href="#rough">3日間</a><a href="#schedule">詳細日程</a>
+<a href="#purpose">旅の目的</a><a href="#rough">3日間</a><a href="#myinfo">自分の情報</a><a href="#schedule">詳細日程</a>
 <a href="#spots">見どころ</a><a href="#disaster">震災学習</a><a href="#food">食事</a><a href="#money">お金</a>
 <a href="#mission">MISSION</a><a href="#packing">持ち物</a><a href="#emergency">緊急時</a>
 </div></nav>
 
 <main>
 
-<section id="overview">
-  <div class="ey">TRIP OVERVIEW</div><h2>まずは、旅の全体像。</h2>
-  <p class="lead">3日間の基本情報を、最初に確認しておきましょう。</p>
-  <div class="overview-box">
-    <div class="overview-grid">
-      <div class="overview-item"><b>日程</b><span>2026年10月7日（水）～10月9日（金）</span></div>
-      <div class="overview-item"><b>行き先</b><span>岩手県 一関・陸前高田・平泉・花巻</span></div>
-      <div class="overview-item"><b>宿泊地</b><span>いちのせき健康の森</span></div>
-      <div class="overview-item"><b>移動</b><span>大型バス</span></div>
-      <div class="overview-item"><b>1日目 集合</b><span>6:45　学校2号館前</span></div>
-      <div class="overview-item"><b>1日目 出発</b><span>7:00</span></div>
-    </div>
-    <a class="button" href="http://matsurube.web.fc2.com/index.html" target="_blank" rel="noopener">いちのせき健康の森 公式HP ↗</a>
-  </div>
-</section>
 
 <section id="purpose">
   <div class="ey">WHY WE GO</div><h2>岩手から、「復興」と「共生」を学ぶ。</h2>
@@ -163,6 +189,20 @@ footer strong{font:1.55rem serif}
     <article class="card rough-card"><img src="https://static.gltjp.com/glt/data/directory/14000/13700/20220923_214308_2219fd00_w1920.webp" alt="厳美渓"><div class="rough-body"><div class="rough-day">DAY 1｜10/07</div><div class="rough-title">岩手の自然に出会う</div><div class="rough-route">東京 → 厳美渓 → いちのせき健康の森</div><p>長いバス移動を経て岩手へ。まずは厳美渓で、岩手の自然を自分の目で見て、感じる。夜はみんなでBBQ。</p></div></article>
     <article class="card rough-card"><img src="https://www.thr.mlit.go.jp/m-park/common/imgs/memorial_park/img_iwate_04.jpg" alt="高田松原津波復興祈念公園"><div class="rough-body"><div class="rough-day">DAY 2｜10/08</div><div class="rough-title">過去に思いを馳せ、今を見る</div><div class="rough-route">陸前高田 → 一関 → 平泉</div><p>高田松原津波復興祈念公園で震災学習。ガイドさんの言葉を聞き逃さず、当時に思いを馳せながら、現在の陸前高田を見つめる。その後は一関でグループ活動、中尊寺で歴史と文化に触れる。</p></div></article>
     <article class="card rough-card"><img src="https://crea.ismcdn.jp/mwimgs/9/a/-/img_9a635a76a1be2e46bbb70f06c58b8e08136607.jpg" alt="わんこそば"><div class="rough-body"><div class="rough-day">DAY 3｜10/09</div><div class="rough-title">岩手の文化を味わい、東京へ</div><div class="rough-route">一関 → 花巻 → 東京</div><p>最後は岩手の食文化。わんこそばとお土産を楽しみ、3日間の学びと思い出を持って東京へ。</p></div></article>
+  </div>
+</section>
+
+<section id="myinfo">
+  <div class="ey">MY TRIP INFO</div>
+  <div class="trip-info-link">
+    <div>
+      <h2 style="margin-bottom:6px">自分の情報を確認</h2>
+      <p class="lead" style="margin:0">部屋割りや、一関での自由行動のグループ・予定を確認できます。</p>
+    </div>
+    <div class="trip-info-actions">
+      <a class="button" href="iwate_room_assignment_2026.html">ROOM｜部屋割りを見る →</a>
+      <a class="button" href="iwate_ichinoseki_free_time_live_v2.html">FREE TIME｜自由行動を見る →</a>
+    </div>
   </div>
 </section>
 
@@ -202,7 +242,7 @@ footer strong{font:1.55rem serif}
 </section>
 
 <section id="spots">
-<div class="ey">PLACES TO SEE</div><h2>「行く」だけではなく「自分の目で見る」「感じる」。</h2>
+<div class="ey">PLACES TO SEE</div><h2 class="spots-title">「行く」だけではなく「自分の目で見る」「感じる」</h2>
 <div class="spot-grid">
   <article class="card spot">
     <img src="https://static.gltjp.com/glt/data/directory/14000/13700/20220923_214308_2219fd00_w1920.webp" alt="厳美渓">
@@ -276,9 +316,9 @@ footer strong{font:1.55rem serif}
 <section id="packing">
 <div class="ey">BEFORE YOU GO</div><h2>持ち物チェック</h2>
 
-<div class="alert"><h3>🚨 宿泊先はホテルではありません</h3><p><strong>タオル</strong>、<strong>寝るときの服（パジャマ・部屋着）</strong>、洗面・入浴用品など、必要なものは各自で準備してください。</p></div>
+<div class="alert"><h3>宿泊先はホテルではありません</h3><p><strong>タオル</strong>・<strong>パジャマ</strong>・洗面用品など、必要なものは各自で準備してください。</p></div>
 
-<div class="alert"><h3>🚌 酔いやすい人：酔い止めは必須</h3><p>乗り物酔いをする人は、<strong>バス乗車の1時間前を目安に酔い止めを飲んでください。</strong><br>薬によって服用方法が異なるため、必ず自分が使う薬の説明書に従ってください。</p></div>
+<div class="alert"><h3>酔いやすい人：酔い止めは必須</h3><p>乗り物酔いをする人は、<strong>バス乗車の1時間前を目安に酔い止めを飲んでください。</strong><br>薬によって服用方法が異なるため、必ず自分が使う薬の説明書に従ってください。</p></div>
 
 <div class="packs">
   <div class="card"><h3>基本の持ち物</h3><ul class="check">
@@ -293,8 +333,8 @@ footer strong{font:1.55rem serif}
   </ul></div>
 </div>
 
-<div class="card" style="margin-top:17px"><h3>🎧 バスの中では</h3><p>音楽・読書・動画・ゲームなどOK。ただし、周りの人の迷惑にならないこと。イヤホンを使い、音量にも注意しましょう。</p></div>
-<div class="card" style="margin-top:17px"><h3>☀️🌧 天候に備える</h3><p>10月でも暑く感じることがあります。必要な人は帽子を。震災学習では屋外活動もあるため、雨予報の場合は傘・折りたたみ傘を忘れずに。</p></div>
+<div class="card" style="margin-top:17px"><h3>バスの中では</h3><p>音楽・読書・動画・ゲームなどOK。ただし、周りの人の迷惑にならないこと。イヤホンを使い、音量にも注意しましょう。</p></div>
+<div class="card" style="margin-top:17px"><h3>天候に備える</h3><p>10月でも暑く感じることがあります。必要な人は帽子を。震災学習では屋外活動もあるため、雨予報の場合は傘・折りたたみ傘を忘れずに。</p></div>
 </section>
 
 <section id="emergency">
