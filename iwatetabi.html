@@ -30,10 +30,10 @@ a{color:inherit}
   width:100%;height:100%;object-fit:cover;
   filter:saturate(.92) contrast(.98);
 }
-.hero-collage img:nth-child(1){grid-column:1;grid-row:1/3;object-position:50% 50%}
-.hero-collage img:nth-child(2){grid-column:2/4;grid-row:1;object-position:50% 44%}
-.hero-collage img:nth-child(3){grid-column:2;grid-row:2;object-position:50% 50%}
-.hero-collage img:nth-child(4){grid-column:3;grid-row:2;object-position:50% 50%}
+.hero-collage img:nth-child(1){grid-column:2;grid-row:1;object-position:50% 50%}
+.hero-collage img:nth-child(2){grid-column:3;grid-row:1;object-position:50% 44%}
+.hero-collage img:nth-child(3){grid-column:1;grid-row:1/3;object-position:50% 50%}
+.hero-collage img:nth-child(4){grid-column:2/4;grid-row:2;object-position:50% 50%}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(47,13,21,.82),rgba(71,20,29,.56),rgba(47,13,21,.78))}
 .hero-inner{position:relative;z-index:2;max-width:980px;padding:70px 22px}
 .kicker{letter-spacing:.22em;font-size:.8rem;opacity:.9}
@@ -127,9 +127,9 @@ footer strong{font:1.55rem serif}
   .grid,.food,.money-grid,.packs,.spot-grid,.stay-grid,.darkgrid,.missions,.rough-grid,.overview-grid{grid-template-columns:1fr}
   .day{grid-template-columns:1fr}.daytag{position:static;text-align:left}.daytag .meet{display:inline;margin-left:10px;border:0;padding:0}
   .hero-collage{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
-  .hero-collage img:nth-child(1){grid-column:1;grid-row:1}
-  .hero-collage img:nth-child(2){grid-column:2;grid-row:1}
-  .hero-collage img:nth-child(3){grid-column:1;grid-row:2}
+  .hero-collage img:nth-child(3){grid-column:1;grid-row:1}
+  .hero-collage img:nth-child(1){grid-column:2;grid-row:1}
+  .hero-collage img:nth-child(2){grid-column:1;grid-row:2}
   .hero-collage img:nth-child(4){grid-column:2;grid-row:2}
   .hero-info{grid-template-columns:1fr}
   .hero-info-item{border-right:0;border-bottom:1px solid #ffffff33}
@@ -310,6 +310,63 @@ footer strong{font:1.55rem serif}
   }
 }
 
+
+/* ===== READABILITY / LINE BREAKS ===== */
+body{line-break:strict}
+h1,h2,h3,
+.button,.rough-title,.rough-route,.rough-point,
+.event h3,.event .time,.event-label,
+.mission,.mission h3,
+.hero-info-item span,.hero-info-item a,
+.trip-info-actions a{
+  word-break:keep-all;
+  overflow-wrap:anywhere;
+}
+p,li,.note,.lead{overflow-wrap:break-word}
+section h2{max-width:100%}
+.dryer-note{border-left-color:#9c5b73}
+
+/* ===== BACK TO TOP ===== */
+.back-to-top{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:80;
+  width:52px;
+  height:52px;
+  border:0;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(112,41,54,.94);
+  color:#fff;
+  font-size:1.45rem;
+  font-weight:900;
+  box-shadow:0 8px 24px rgba(50,18,25,.25);
+  cursor:pointer;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:.2s ease;
+}
+.back-to-top.show{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.back-to-top:active{transform:scale(.96)}
+@media(max-width:700px){
+  .back-to-top{
+    right:14px;
+    bottom:14px;
+    width:48px;
+    height:48px;
+    font-size:1.3rem;
+  }
+  h2{word-break:keep-all}
+  .card h3,.event h3,.rough-title{word-break:keep-all}
+}
+
 </style>
 </head>
 <body>
@@ -334,9 +391,9 @@ footer strong{font:1.55rem serif}
 </header>
 
 <nav><div>
-<a href="#purpose">旅の目的</a><a href="#rough">3日間</a><a href="#myinfo">自分の情報</a><a href="#schedule">詳細日程</a>
-<a href="#spots">見どころ</a><a href="#disaster">震災学習</a><a href="#food">食事</a><a href="#money">お金</a>
-<a href="#mission">MISSION</a><a href="#packing">持ち物</a><a href="#emergency">緊急時</a>
+<a href="#purpose">旅の目的</a><a href="#mission">MISSION</a><a href="#rough">3日間</a><a href="#myinfo">自分の情報</a>
+<a href="#schedule">詳細日程</a><a href="#spots">見どころ</a><a href="#disaster">震災学習</a><a href="#food">食事</a>
+<a href="#money">お金</a><a href="#packing">持ち物</a><a href="#emergency">緊急時</a>
 </div></nav>
 
 <main>
@@ -350,6 +407,16 @@ footer strong{font:1.55rem serif}
     <div class="card"><div class="n">02</div><h3>岩手を知る</h3><p>自然、歴史、文化、食、暮らしを実際に体験しながら知る。</p></div>
     <div class="card"><div class="n">03</div><h3>共生を考える</h3><p>地域の人々の言葉や姿から、人と人、人と地域がともに生きることを考える。</p></div>
   </div>
+</section>
+
+<section id="mission">
+<div class="ey">IWATE MISSION</div><h2>「復興」と「共生」を、自分の言葉で。</h2>
+<div class="missions">
+  <div class="mission"><span>SEE</span><h3>見る</h3>その場所に立ち、自分の目で確かめる。</div>
+  <div class="mission"><span>HEAR</span><h3>聞く</h3>地域の声や友達の気づきを受け止める。</div>
+  <div class="mission"><span>THINK</span><h3>考える</h3>「なぜ？」「自分なら？」を考える。</div>
+  <div class="mission"><span>TELL</span><h3>伝える</h3>学んだことを自分の日本語で伝える。</div>
+</div>
 </section>
 
 <section id="rough">
@@ -408,7 +475,7 @@ footer strong{font:1.55rem serif}
       <p class="lead" style="margin:0">部屋割りや、一関での自由行動のグループ・予定を確認できます。</p>
     </div>
     <div class="trip-info-actions">
-      <a class="button" href="iwate_room_assignment_2026_stay_map.html">ROOM｜部屋割りを見る →</a>
+      <a class="button" href="./iwate_room_assignment_2026_green.html">ROOM｜部屋割りを見る →</a>
       <a class="button" href="iwate_ichinoseki_free_time_live_v2.html">FREE TIME｜自由行動を見る →</a>
     </div>
   </div>
@@ -726,20 +793,14 @@ footer strong{font:1.55rem serif}
 <div class="money-total">目安として<br><strong>5,000円程度</strong>／食事・飲み物中心<br><strong>7,000～10,000円程度</strong>／お土産も買う場合<br><small>※あくまで目安です。使い方によって変わります。</small></div>
 </section>
 
-<section id="mission">
-<div class="ey">IWATE MISSION</div><h2>「復興」と「共生」を、自分の言葉で。</h2>
-<div class="missions">
-  <div class="mission"><span>SEE</span><h3>見る</h3>その場所に立ち、自分の目で確かめる。</div>
-  <div class="mission"><span>HEAR</span><h3>聞く</h3>地域の声や友達の気づきを受け止める。</div>
-  <div class="mission"><span>THINK</span><h3>考える</h3>「なぜ？」「自分なら？」を考える。</div>
-  <div class="mission"><span>TELL</span><h3>伝える</h3>学んだことを自分の日本語で伝える。</div>
-</div>
-</section>
+
 
 <section id="packing">
 <div class="ey">BEFORE YOU GO</div><h2>持ち物チェック</h2>
 
-<div class="alert"><h3>宿泊先はホテルではありません</h3><p><strong>タオル</strong>・<strong>パジャマ</strong>・洗面用品など、必要なものは各自で準備してください。</p></div>
+<div class="alert"><h3>宿泊先はホテルではありません</h3><p><strong>タオル</strong>・<strong>パジャマ</strong>・歯ブラシなどの<strong>アメニティ類</strong>・<strong>館内靴</strong>は各自で準備してください。</p></div>
+
+<div class="alert dryer-note"><h3>女子学生へ｜ドライヤー</h3><p>部屋ごとに相談して、<strong>1台程度を分担して持参</strong>するのがおすすめです。全員が持ってくる必要はありません。</p></div>
 
 <div class="alert"><h3>酔いやすい人：酔い止めは必須</h3><p>乗り物酔いをする人は、<strong>バス乗車の1時間前を目安に酔い止めを飲んでください。</strong><br>薬によって服用方法が異なるため、必ず自分が使う薬の説明書に従ってください。</p></div>
 
@@ -747,7 +808,7 @@ footer strong{font:1.55rem serif}
   <div class="card"><h3>基本の持ち物</h3><ul class="check">
     <li>財布・現金</li><li>学生証</li><li>スマートフォン</li><li>充電器・モバイルバッテリー</li>
     <li>2泊3日分の服</li><li>下着・靴下</li><li>パジャマ・部屋着</li><li>羽織れる上着</li>
-    <li>歩きやすい靴</li><li>タオル</li><li>歯ブラシ・歯みがき</li><li>洗面・入浴用品</li>
+    <li>歩きやすい靴</li><li>館内靴</li><li>タオル</li><li>歯ブラシ・歯みがき</li><li>洗面・入浴用品</li>
   </ul></div>
   <div class="card"><h3>学習・天候・体調</h3><ul class="check">
     <li>筆記用具</li><li>メモ帳・ノート</li><li>酔い止め</li><li>必要な薬</li>
@@ -789,5 +850,21 @@ footer strong{font:1.55rem serif}
   <small>専門学校東京国際ビジネスカレッジ｜2026 岩手修学旅行</small>
   <div class="credit">写真は各観光・地域情報サイト等の公開画像を参照して表示しています。</div>
 </footer>
+
+<button class="back-to-top" id="backToTop" type="button" aria-label="トップに戻る" title="トップに戻る">↑</button>
+<script>
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 420) {
+    backToTop.classList.add('show');
+  } else {
+    backToTop.classList.remove('show');
+  }
+});
+backToTop.addEventListener('click', () => {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+});
+</script>
+
 </body>
 </html>
