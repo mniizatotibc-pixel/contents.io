@@ -367,6 +367,86 @@ section h2{max-width:100%}
   .card h3,.event h3,.rough-title{word-break:keep-all}
 }
 
+
+/* ===== MOBILE-FIRST FINAL TUNING ===== */
+h1,h2,h3,.rough-title,.button,.meal,.event .time,.event h3{
+  text-wrap:balance;
+}
+p,.lead,.note,.mission,.meal,.safety p,.emergency p{
+  text-wrap:pretty;
+}
+.hero-copy-break{display:block}
+.meal-note{font-size:.86em;color:var(--muted)}
+.bus-button{background:#24394a}
+
+@media(max-width:700px){
+  body{font-size:15px;line-height:1.75}
+  main{padding-left:15px;padding-right:15px}
+  section{padding-top:42px;padding-bottom:42px}
+  section h2{
+    font-size:clamp(1.55rem,7vw,2rem);
+    line-height:1.35;
+    letter-spacing:0;
+  }
+  .ey{font-size:.68rem;letter-spacing:.12em}
+  .lead{font-size:.96rem;line-height:1.8;max-width:none}
+  .hero-inner{padding-left:18px;padding-right:18px}
+  .hero h1{font-size:clamp(2rem,10vw,3rem);line-height:1.16}
+  .hero h1 small{font-size:.9rem;line-height:1.65;margin-top:12px}
+  .hero-inner>p{font-size:.95rem;line-height:1.8;max-width:32em}
+  .hero-info{grid-template-columns:1fr !important;gap:8px !important}
+  .hero-info-item{
+    display:grid;
+    grid-template-columns:52px minmax(0,1fr);
+    gap:8px;
+    align-items:start;
+  }
+  nav>div{
+    overflow-x:auto;
+    white-space:nowrap;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  nav>div::-webkit-scrollbar{display:none}
+  nav a{display:inline-block;flex:none}
+  .missions{grid-template-columns:1fr !important}
+  .mission{min-height:0;padding:18px}
+  .trip-info-link{display:block}
+  .trip-info-actions{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:10px;
+    margin-top:18px;
+  }
+  .trip-info-actions .button{
+    width:100%;
+    justify-content:space-between;
+    text-align:left;
+    line-height:1.45;
+  }
+  .daytag{
+    display:flex;
+    flex-wrap:wrap;
+    gap:5px 10px;
+    align-items:center;
+  }
+  .daytag .meet{width:100%;margin-left:0 !important}
+  .event{padding-left:16px;padding-right:16px}
+  .event .time{font-size:.82rem;line-height:1.45}
+  .event h3{font-size:1.05rem;line-height:1.5}
+  .note{font-size:.91rem;line-height:1.72}
+  .spots-title{font-size:1.55rem !important;line-height:1.45}
+  .dark blockquote{font-size:1.65rem;line-height:1.5}
+  .question-box p{font-size:1rem;line-height:1.7}
+  .food,.money-grid,.packs{grid-template-columns:1fr !important}
+  .card{padding-left:17px;padding-right:17px}
+  .alert{padding:16px}
+  .alert h3{font-size:1rem;line-height:1.5}
+  .check{grid-template-columns:1fr !important}
+  .back-to-top{width:50px;height:50px;right:14px;bottom:14px}
+}
+@media(min-width:701px){.hero-copy-break{display:none}}
+
 </style>
 </head>
 <body>
@@ -381,7 +461,7 @@ section h2{max-width:100%}
   <div class="hero-inner">
     <div class="kicker">SCHOOL TRIP 2026 · IWATE</div>
     <h1>岩手から学ぶ<br><em>「復興」と「共生」</em><small>見て、聞いて、考えて、自分の言葉で伝える3日間。</small></h1>
-    <p>自然、歴史、文化、食、そして震災からの復興。岩手で人と地域のつながりに触れ、「ともに生きる」ということを考えよう。</p>
+    <p>自然、歴史、文化、食、そして震災からの復興。<br class="hero-copy-break">岩手で人と地域のつながりに触れ、「ともに生きる」ことを考えよう。</p>
     <div class="hero-info">
       <div class="hero-info-item"><b>日程</b><span>2026年10月7日（水）～10月9日（金）</span></div>
       <div class="hero-info-item"><b>行先</b><span>岩手県｜一関・陸前高田・平泉・花巻</span></div>
@@ -391,7 +471,7 @@ section h2{max-width:100%}
 </header>
 
 <nav><div>
-<a href="#purpose">旅の目的</a><a href="#mission">MISSION</a><a href="#rough">3日間</a><a href="#myinfo">自分の情報</a>
+<a href="#purpose">旅の目的</a><a href="#mission">MISSION</a><a href="#rough">3日間</a><a href="#myinfo">自分の情報</a><a href="./iwate_bus.html">バス</a>
 <a href="#schedule">詳細日程</a><a href="#spots">見どころ</a><a href="#disaster">震災学習</a><a href="#food">食事</a>
 <a href="#money">お金</a><a href="#packing">持ち物</a><a href="#emergency">緊急時</a>
 </div></nav>
@@ -472,11 +552,12 @@ section h2{max-width:100%}
   <div class="trip-info-link">
     <div>
       <h2 style="margin-bottom:6px">自分の情報を確認</h2>
-      <p class="lead" style="margin:0">部屋割りや、一関での自由行動のグループ・予定を確認できます。</p>
+      <p class="lead" style="margin:0">部屋割り・一関での自由行動・バス案内をここから確認できます。</p>
     </div>
     <div class="trip-info-actions">
       <a class="button" href="./iwate_room_assignment_2026_green.html">ROOM｜部屋割りを見る →</a>
       <a class="button" href="iwate_ichinoseki_free_time_live_v2.html">FREE TIME｜自由行動を見る →</a>
+      <a class="button bus-button" href="./iwate_bus.html">BUS｜バス案内を見る →</a>
     </div>
   </div>
 </section>
@@ -623,8 +704,8 @@ section h2{max-width:100%}
     <div class="event">
       <span class="event-label food">夕食</span>
       <div class="time">18:30</div>
-      <h3>夕食</h3>
-      <div class="note">宿泊施設で全員一緒に食べます。</div>
+      <h3>カレー</h3>
+      <div class="note">宿泊施設で全員一緒に食べます。<strong>鶏肉を使用し、牛肉・豚肉は使用していません。</strong></div>
     </div>
 
     <div class="event">
@@ -775,7 +856,7 @@ section h2{max-width:100%}
 <div class="ey">EAT IN IWATE</div><h2>3日間の食事</h2>
 <div class="food">
   <div class="card"><h3>DAY 1</h3><div class="meal"><b>朝</b> 自分で用意／バス内OK</div><div class="meal"><b>昼</b> 安達太良SAで各自</div><div class="meal"><b>夜</b> BBQ</div></div>
-  <div class="card"><h3>DAY 2</h3><div class="meal"><b>朝</b> 前日に購入 or 持参</div><div class="meal"><b>昼</b> 一関で自由に</div><div class="meal"><b>夜</b> 宿泊施設で全員一緒</div></div>
+  <div class="card"><h3>DAY 2</h3><div class="meal"><b>朝</b> 前日に購入 or 持参</div><div class="meal"><b>昼</b> 一関で自由に</div><div class="meal"><b>夜</b> カレー <span class="meal-note">（鶏肉使用／牛・豚なし）</span></div></div>
   <div class="card"><h3>DAY 3</h3><div class="meal"><b>朝</b> なし</div><div class="meal"><b>昼 10:00</b> わんこそば</div><div class="meal"><b>夜</b> 帰着後、各自</div>
     <div class="food-photo"><img src="https://crea.ismcdn.jp/mwimgs/9/a/-/img_9a635a76a1be2e46bbb70f06c58b8e08136607.jpg" alt="わんこそば"></div>
   </div>
