@@ -447,6 +447,20 @@ p,.lead,.note,.mission,.meal,.safety p,.emergency p{
 }
 @media(min-width:701px){.hero-copy-break{display:none}}
 
+
+.quick-button{background:#6f2936}
+.weather-button{background:#42677a}
+@media(max-width:700px){
+  #myinfo .trip-info-link{padding:18px}
+  #myinfo h2{font-size:1.65rem!important}
+  #myinfo .lead{line-height:1.75}
+  #myinfo .trip-info-actions .button{
+    min-height:50px;
+    display:flex;
+    align-items:center;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -471,7 +485,7 @@ p,.lead,.note,.mission,.meal,.safety p,.emergency p{
 </header>
 
 <nav><div>
-<a href="#purpose">旅の目的</a><a href="#mission">MISSION</a><a href="#rough">3日間</a><a href="#myinfo">自分の情報</a><a href="./iwate_bus.html">バス</a>
+<a href="#purpose">旅の目的</a><a href="#mission">MISSION</a><a href="#rough">3日間</a><a href="#myinfo">当日メニュー</a><a href="./iwate_quick_check.html">集合時間</a><a href="./iwate_weather.html">天気</a><a href="./iwate_bus.html">バス</a>
 <a href="#schedule">詳細日程</a><a href="#spots">見どころ</a><a href="#disaster">震災学習</a><a href="#food">食事</a>
 <a href="#money">お金</a><a href="#packing">持ち物</a><a href="#emergency">緊急時</a>
 </div></nav>
@@ -552,12 +566,14 @@ p,.lead,.note,.mission,.meal,.safety p,.emergency p{
   <div class="trip-info-link">
     <div>
       <h2 style="margin-bottom:6px">自分の情報を確認</h2>
-      <p class="lead" style="margin:0">部屋割り・一関での自由行動・バス案内をここから確認できます。</p>
+      <p class="lead" style="margin:0">旅行中によく使うページをまとめました。集合時間・天気・部屋割り・バス・自由行動をここから確認できます。</p>
     </div>
     <div class="trip-info-actions">
+      <a class="button quick-button" href="./iwate_quick_check.html">QUICK CHECK｜集合時間 →</a>
+      <a class="button weather-button" href="./iwate_weather.html">WEATHER｜天気を確認 →</a>
       <a class="button" href="./iwate_room_assignment_2026_green.html">ROOM｜部屋割りを見る →</a>
-      <a class="button" href="iwate_ichinoseki_free_time_live_v2.html">FREE TIME｜自由行動を見る →</a>
       <a class="button bus-button" href="./iwate_bus.html">BUS｜バス案内を見る →</a>
+      <a class="button" href="iwate_ichinoseki_free_time_live_v2.html">FREE TIME｜自由行動を見る →</a>
     </div>
   </div>
 </section>
@@ -919,6 +935,7 @@ p,.lead,.note,.mission,.meal,.safety p,.emergency p{
   <p><b>勝手に行動しない：</b>指定された範囲・時間を守りましょう。</p>
   <p><b>体調を我慢しない：</b>気分が悪い、けがをした、困った場合は早めに先生へ。</p>
   <p><b>学ぶ場所では静かに：</b>震災学習や寺院では、その場所の意味と周囲への配慮を忘れずに。</p>
+  <p><b>笑顔で挨拶する：</b>バスの運転手さん、宿泊施設の職員さん、ガイドさんなど、お世話になる方へ自分から気持ちよく挨拶しましょう。</p>
   <p><b>お互いを尊重する：</b>写真、音、座席、食事など、友達や地域の方への思いやりを。</p>
 </div>
 </section>

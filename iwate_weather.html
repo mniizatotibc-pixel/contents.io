@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#42677a">
+<title>WEATHER｜岩手の天気</title>
+<style>
+:root{
+  --blue:#42677a;--deep:#294657;--sky:#eaf3f7;--cream:#f7f6f1;
+  --paper:#fff;--ink:#283033;--muted:#6d777c;--line:#dce5e8;--gold:#b99452;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  line-height:1.75
+}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(41,70,87,.97);padding:10px 14px;color:#fff;box-shadow:0 3px 16px #0002}
+.topbar-inner{max-width:720px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+.back{color:#fff;text-decoration:none;border:1px solid #ffffff55;border-radius:999px;padding:7px 11px;font-size:.82rem;font-weight:800}
+.trip{font-size:.68rem;letter-spacing:.12em;opacity:.75}
+.hero{background:linear-gradient(145deg,#294657,#5f8799);color:#fff;padding:43px 17px 35px}
+.hero-inner{max-width:720px;margin:auto}.ey{font-size:.68rem;letter-spacing:.18em;font-weight:900;opacity:.72}
+h1{font-size:clamp(2.35rem,12vw,3.8rem);margin:5px 0 8px;line-height:1.1}
+.hero p{margin:0;color:#edf5f8;text-wrap:pretty}
+main{max-width:720px;margin:auto;padding:26px 14px 72px}
+.info{
+  background:#fff8dc;border:1px solid #eadca7;border-radius:16px;
+  padding:15px;margin-bottom:20px;font-size:.9rem
+}
+.info b{color:#725800}
+.weather-grid{display:grid;gap:13px}
+.card{
+  background:var(--paper);border:1px solid var(--line);border-radius:18px;
+  padding:18px;box-shadow:0 7px 20px #2447590d
+}
+.day{font-size:.7rem;letter-spacing:.13em;font-weight:900;color:var(--blue)}
+.card h2{margin:4px 0 5px;color:var(--deep);font-size:1.45rem;line-height:1.35}
+.card p{margin:0 0 14px;color:var(--muted);font-size:.91rem}
+.button{
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+  width:100%;text-decoration:none;background:var(--blue);color:#fff;
+  padding:12px 14px;border-radius:12px;font-weight:900;line-height:1.45
+}
+.sub{
+  margin-top:24px;background:var(--sky);border-radius:17px;padding:17px;
+  color:#3c5967;font-size:.9rem
+}
+.sub b{display:block;margin-bottom:5px;color:var(--deep)}
+footer{background:var(--deep);color:#dce7ec;text-align:center;padding:28px 14px;font-size:.8rem}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner">
+<a class="back" href="https://mniizatotibc-pixel.github.io/contents.io/iwatetabi.html">← 旅のしおりに戻る</a>
+<div class="trip">IWATE 2026</div>
+</div></div>
+
+<header class="hero"><div class="hero-inner">
+<div class="ey">WEATHER</div>
+<h1>岩手の天気を確認</h1>
+<p>旅行中の天気は変わることがあります。出発前・朝・移動前に、気象庁の最新情報を確認しよう。</p>
+</div></header>
+
+<main>
+<div class="info"><b>このページは予報を固定表示しません。</b><br>下のボタンから気象庁の最新情報を確認できます。</div>
+
+<div class="weather-grid">
+  <article class="card">
+    <div class="day">DAY 1 / DAY 2</div>
+    <h2>一関市</h2>
+    <p>厳美渓・宿泊地・一関自由行動周辺の天気確認に。</p>
+    <a class="button" href="https://www.data.jma.go.jp/yoho/data/jishin/met/kishoushien_Iwate_Ichinoseki-shi.html" target="_blank" rel="noopener">気象庁｜一関市 <span>↗</span></a>
+  </article>
+
+  <article class="card">
+    <div class="day">DAY 2</div>
+    <h2>陸前高田市</h2>
+    <p>高田松原津波復興祈念公園での屋外学習前に確認。</p>
+    <a class="button" href="https://www.data.jma.go.jp/yoho/data/jishin/met/kishoushien_Iwate_Rikuzen-takata-shi.html" target="_blank" rel="noopener">気象庁｜陸前高田市 <span>↗</span></a>
+  </article>
+
+  <article class="card">
+    <div class="day">DAY 3</div>
+    <h2>花巻市</h2>
+    <p>わんこそば・帰路出発前の天気確認に。</p>
+    <a class="button" href="https://www.data.jma.go.jp/yoho/data/jishin/met/kishoushien_Iwate_Hanamaki-shi.html" target="_blank" rel="noopener">気象庁｜花巻市 <span>↗</span></a>
+  </article>
+</div>
+
+<div class="sub"><b>服装・持ち物も確認</b>雨の可能性がある日は折りたたみ傘を。朝晩と昼で気温差が出ることもあるので、調整できる上着があると安心です。</div>
+</main>
+
+<footer>専門学校東京国際ビジネスカレッジ｜2026 岩手修学旅行</footer>
+</body>
+</html>
