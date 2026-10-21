@@ -1,0 +1,9 @@
+{
+  "name": "contents-kotomas",
+  "private": true,
+  "scripts": {
+    "test": "node tests/kotomas.cjs",
+    "build:n2": "node scripts/build-n2.cjs"
+  },
+  "devDependencies": {"jsdom": "30.1.3"}
+}
